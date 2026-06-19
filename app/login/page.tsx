@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { login } from '@/app/actions/auth';
+import Link from 'next/link';
 // react-dom'dan useFormState import ediyoruz (React 18)
 import { useFormState, useFormStatus } from 'react-dom';
 
@@ -87,9 +88,9 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-8 text-center">
-            <a href="/" className="text-xs text-cream-muted hover:text-cream transition-colors duration-300">
+            <Link href="/" className="text-xs text-cream-muted hover:text-cream transition-colors duration-300">
               ← Portfolyoya Dön
-            </a>
+            </Link>
           </div>
         </div>
       </motion.div>
