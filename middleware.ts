@@ -6,28 +6,18 @@ export function middleware(request: NextRequest) {
 
   // Sadece /admin yollarını koru
   if (url.pathname.startsWith('/admin')) {
-    const basicAuth = request.headers.get('authorization');
-    
-    // Varsayılan kullanıcı adı ve şifre (Environment variable ile değiştirilebilir)
-    const user = process.env.ADMIN_USER || 'admin';
-    const pwd = process.env.ADMIN_PASSWORD || 'emir2026';
 
-    if (basicAuth) {
-      const authValue = basicAuth.split(' ')[1];
-      const [providedUser, providedPwd] = atob(authValue).split(':');
+    // Cookie kontrolü yap
+    const token = request.cookies.get('admin_token');
 
-      if (providedUser === user && providedPwd === pwd) {
-        return NextResponse.next();
-      }
+    // Token yoksa login sayfasına yönlendir
+    if (!token || token.value !== 'authenticated') {
+      const loginUrl = new URL('/login', request.url);
+      return NextResponse.redirect(loginUrl);
     }
 
-    // Yetkisiz erişimde Basic Auth promptunu göster
-    return new NextResponse('Auth Required.', {
-      status: 401,
-      headers: {
-        'WWW-Authenticate': 'Basic realm="Secure Admin Area"',
-      },
-    });
+    // Token varsa geçişe izin ver
+    return NextResponse.next();
   }
 
   return NextResponse.next();
