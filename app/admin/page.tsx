@@ -92,12 +92,12 @@ export default function AdminDashboard() {
           <div className="space-y-4 relative z-10">
             <div className="p-6 bg-black/20 rounded-2xl border border-cream/5 hover:bg-black/30 transition-colors duration-300">
               <p className="text-sm text-cream-muted leading-relaxed">
-                <strong className="text-cream mr-2">Insight 1:</strong> ".NET Core" ve "AI Entegrasyonu" anahtar kelimeleri sektörde çok popüler. "Yummy Restaurant System" projendeki OpenAI entegrasyonunu CV'nde biraz daha öne çıkarmanı tavsiye ederim.
+                <strong className="text-cream mr-2">Insight 1:</strong> &quot;.NET Core&quot; ve &quot;AI Entegrasyonu&quot; anahtar kelimeleri sektörde çok popüler. &quot;Yummy Restaurant System&quot; projendeki OpenAI entegrasyonunu CV&apos;nde biraz daha öne çıkarmanı tavsiye ederim.
               </p>
             </div>
             <div className="p-6 bg-black/20 rounded-2xl border border-cream/5 hover:bg-black/30 transition-colors duration-300">
               <p className="text-sm text-cream-muted leading-relaxed">
-                <strong className="text-cream mr-2">Insight 2:</strong> ViCareerAI projesi harika bir SaaS örneği. Ancak "Eğitim" kısmında "İleri Düzey Mühendislik" ifadesini kaldırdığını fark ettim, bu yerine "Full Stack Development & AI Solutions" gibi daha spesifik bir hedef ekleyebilirsin.
+                <strong className="text-cream mr-2">Insight 2:</strong> ViCareerAI projesi harika bir SaaS örneği. Ancak &quot;Eğitim&quot; kısmında &quot;İleri Düzey Mühendislik&quot; ifadesini kaldırdığını fark ettim, bu yerine &quot;Full Stack Development &amp; AI Solutions&quot; gibi daha spesifik bir hedef ekleyebilirsin.
               </p>
             </div>
           </div>
