@@ -1,0 +1,322 @@
+{
+  "nav": {
+    "home": {
+      "tr": "Ana Sayfa",
+      "en": "Home"
+    },
+    "about": {
+      "tr": "Hakkımda",
+      "en": "About"
+    },
+    "stats": {
+      "tr": "Rakamlarla",
+      "en": "Stats"
+    },
+    "projects": {
+      "tr": "Projeler",
+      "en": "Projects"
+    },
+    "skills": {
+      "tr": "Yetenekler",
+      "en": "Skills"
+    },
+    "certificates": {
+      "tr": "Sertifikalar",
+      "en": "Certificates"
+    },
+    "experience": {
+      "tr": "Deneyim",
+      "en": "Experience"
+    },
+    "contact": {
+      "tr": "İletişim",
+      "en": "Contact"
+    }
+  },
+  "hero": {
+    "badge": {
+      "tr": "Yeni nesil yapay zeka mühendisliği",
+      "en": "Next-gen AI engineering"
+    },
+    "role": {
+      "tr": "YAZILIM\nGELİŞTİRİCİ",
+      "en": "SOFTWARE\nENGINEER"
+    },
+    "subtitle": {
+      "tr": "AI Destekli .NET & Full-Stack Geliştirici",
+      "en": "AI-Powered .NET & Full-Stack Developer"
+    },
+    "tagline": {
+      "tr": "Yapay zeka destekli, ölçeklenebilir web uygulamaları geliştiriyorum.",
+      "en": "I build AI-powered, scalable web applications."
+    },
+    "since": {
+      "tr": "©2026 / 2024'TEN BERİ",
+      "en": "©2026 / CREATING SINCE 2024"
+    },
+    "cta1": {
+      "tr": "Projelerimi Gör",
+      "en": "View My Work"
+    },
+    "cta2": {
+      "tr": "İletişime Geç",
+      "en": "Get in Touch"
+    },
+    "scroll": {
+      "tr": "Aşağı Kaydır",
+      "en": "Scroll Down"
+    }
+  },
+  "about": {
+    "title": {
+      "tr": "Hakkımda",
+      "en": "About Me"
+    },
+    "subtitle": {
+      "tr": "Kod ve yapay zekayı bir araya getiriyorum",
+      "en": "Bridging code and artificial intelligence"
+    },
+    "statement": {
+      "tr": "Koddan\nÇözüme.",
+      "en": "From Code\nTo Solution."
+    },
+    "journey": {
+      "tr": "Yolculuğum",
+      "en": "My Journey"
+    },
+    "cta": {
+      "tr": "Hemen Başla",
+      "en": "Get Started"
+    }
+  },
+  "projects": {
+    "title": {
+      "tr": "Seçili Projeler",
+      "en": "Featured Projects"
+    },
+    "subtitle": {
+      "tr": "Ürettiğim bazı çalışmalar",
+      "en": "A selection of what I've built"
+    },
+    "all": {
+      "tr": "Tümü",
+      "en": "All"
+    },
+    "viewAll": {
+      "tr": "Tüm Çalışmaları Gör",
+      "en": "View All Work"
+    },
+    "viewGallery": {
+      "tr": "Galeriyi Gör",
+      "en": "View Gallery"
+    },
+    "viewCode": {
+      "tr": "Kodu Gör",
+      "en": "View Code"
+    },
+    "liveDemo": {
+      "tr": "Canlı Demo",
+      "en": "Live Demo"
+    },
+    "problem": {
+      "tr": "Problem",
+      "en": "Problem"
+    },
+    "solution": {
+      "tr": "Çözüm",
+      "en": "Solution"
+    },
+    "results": {
+      "tr": "Sonuçlar",
+      "en": "Results"
+    },
+    "tech": {
+      "tr": "Teknolojiler",
+      "en": "Technologies"
+    },
+    "viewProject": {
+      "tr": "Projeyi İncele",
+      "en": "View Project"
+    }
+  },
+  "skills": {
+    "title": {
+      "tr": "Hizmetler & Teknolojiler",
+      "en": "Services & Technologies"
+    },
+    "subtitle": {
+      "tr": "Çalıştığım araçlar ve teknolojiler",
+      "en": "The tools and technologies I work with"
+    }
+  },
+  "certificates": {
+    "title": {
+      "tr": "Sertifikalar",
+      "en": "Certificates"
+    },
+    "subtitle": {
+      "tr": "Sürekli öğrenme yolculuğum",
+      "en": "My continuous learning journey"
+    },
+    "view": {
+      "tr": "Sertifikayı Aç",
+      "en": "Open Certificate"
+    },
+    "viewPDF": {
+      "tr": "PDF'i Görüntüle",
+      "en": "View PDF"
+    }
+  },
+  "experience": {
+    "title": {
+      "tr": "Deneyim & Eğitim",
+      "en": "Experience & Education"
+    },
+    "subtitle": {
+      "tr": "Zaman içindeki gelişimim",
+      "en": "My growth over time"
+    }
+  },
+  "ai": {
+    "title": {
+      "tr": "Emir AI'ya Sor",
+      "en": "Ask Emir AI"
+    },
+    "description": {
+      "tr": "Yapay zeka destekli asistanla etkileşime geçin",
+      "en": "Interact with the AI-powered assistant"
+    },
+    "placeholder": {
+      "tr": "Bir soru yaz...",
+      "en": "Type a question..."
+    },
+    "send": {
+      "tr": "Gönder",
+      "en": "Send"
+    },
+    "greeting": {
+      "tr": "Merhaba! Ben Emir'in AI asistanıyım. Yetenekleri, projeleri veya deneyimi hakkında soru sorabilirsin.",
+      "en": "Hi! I'm Emir's AI assistant. Ask me about his skills, projects or experience."
+    },
+    "suggestions": {
+      "tr": [
+        "En güçlü olduğu teknolojiler neler?",
+        "AI deneyimi nedir?",
+        "Hangi projeleri yaptı?",
+        "Nasıl iletişime geçebilirim?"
+      ],
+      "en": [
+        "What are his strongest technologies?",
+        "What's his AI experience?",
+        "What projects has he built?",
+        "How can I get in touch?"
+      ]
+    },
+    "disclaimer": {
+      "tr": "Bu asistan, Emir'in portfolyo verilerine dayalı önceden hazırlanmış yanıtlar verir.",
+      "en": "This assistant provides scripted answers based on Emir's portfolio data."
+    }
+  },
+  "stats": {
+    "title": {
+      "tr": "Rakamlarla",
+      "en": "By the Numbers"
+    }
+  },
+  "contact": {
+    "title": {
+      "tr": "İletişime Geç",
+      "en": "Let's Talk."
+    },
+    "infoTitle": {
+      "tr": "Bana Ulaşın",
+      "en": "Get In Touch"
+    },
+    "subtitle": {
+      "tr": "Bir projen mi var? Birlikte harika bir şey üretelim.",
+      "en": "Have a project in mind? Let's build something great."
+    },
+    "nameLabel": {
+      "tr": "Adın",
+      "en": "Name"
+    },
+    "namePlaceholder": {
+      "tr": "Adınızı girin",
+      "en": "Your name"
+    },
+    "emailLabel": {
+      "tr": "E-posta",
+      "en": "Email"
+    },
+    "emailPlaceholder": {
+      "tr": "example@domain.com",
+      "en": "example@domain.com"
+    },
+    "messageLabel": {
+      "tr": "Mesajın",
+      "en": "Message"
+    },
+    "messagePlaceholder": {
+      "tr": "Mesajınızı yazın...",
+      "en": "Tell me about your project..."
+    },
+    "submitButton": {
+      "tr": "Mesaj Gönder",
+      "en": "Send Message"
+    },
+    "submitting": {
+      "tr": "Gönderiliyor...",
+      "en": "Sending..."
+    },
+    "successMessage": {
+      "tr": "Teşekkürler! Mesajınız başarıyla gönderildi.",
+      "en": "Thanks! Your message has been sent successfully."
+    },
+    "phoneLabel": {
+      "tr": "Telefon",
+      "en": "Phone"
+    },
+    "githubLabel": {
+      "tr": "GitHub",
+      "en": "GitHub"
+    },
+    "linkedinLabel": {
+      "tr": "LinkedIn",
+      "en": "LinkedIn"
+    },
+    "or": {
+      "tr": "veya doğrudan ulaş",
+      "en": "or reach out directly"
+    },
+    "location": {
+      "tr": "Konum",
+      "en": "Location"
+    },
+    "education": {
+      "tr": "Eğitim",
+      "en": "Education"
+    },
+    "downloadCv": {
+      "tr": "CV İndir",
+      "en": "Download CV"
+    }
+  },
+  "footer": {
+    "rights": {
+      "tr": "Tüm hakları saklıdır.",
+      "en": "All rights reserved."
+    },
+    "built": {
+      "tr": "Next.js, React, TypeScript, Tailwind CSS, Framer Motion ve Three.js ile geliştirildi",
+      "en": "Built with Next.js, React, TypeScript, Tailwind CSS, Framer Motion, and Three.js"
+    },
+    "quickLinks": {
+      "tr": "Hızlı Linkler",
+      "en": "Quick Links"
+    },
+    "social": {
+      "tr": "Sosyal",
+      "en": "Social"
+    }
+  }
+}

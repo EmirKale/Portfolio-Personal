@@ -1,0 +1,655 @@
+[
+  {
+    "id": "vicareerai",
+    "title": "ViCareerAI",
+    "category": {
+      "tr": "SaaS & AI",
+      "en": "SaaS & AI"
+    },
+    "tags": [
+      {
+        "tr": "SaaS",
+        "en": "SaaS"
+      },
+      {
+        "tr": "AI",
+        "en": "AI"
+      }
+    ],
+    "description": {
+      "tr": "Canlı freemium SaaS. CV oluşturucu, GPT-4o kapak mektubu üreticisi ve Kanban takip aracı. Next.js 15, Supabase, Stripe ve OpenAI ile geliştirildi.",
+      "en": "Live freemium SaaS with CV builder, GPT-4o cover letter generator & Kanban tracker. Built with Next.js 15, Supabase, Stripe, and OpenAI."
+    },
+    "longDescription": {
+      "tr": "Kariyer yolculuğunu destekleyen uçtan uca yapay zeka destekli bir platform. Kullanıcılar CV'lerini oluşturabilir, OpenAI entegrasyonuyla kişiselleştirilmiş ön yazılar hazırlayabilir ve iş başvurularını Kanban panosuyla takip edebilir.",
+      "en": "An end-to-end AI-powered platform supporting the career journey. Users can build CVs, generate personalized cover letters with OpenAI, and track job applications via a Kanban board."
+    },
+    "tech": [
+      "Next.js 15",
+      "Supabase",
+      "LemonSqueezy",
+      "OpenAI",
+      "Tailwind CSS"
+    ],
+    "cover": "/ViCareer/Ekran görüntüsü 2026-05-28 112458.png",
+    "gallery": [],
+    "links": {
+      "github": "https://github.com/EmirKale/ViCareerAI",
+      "demo": "https://vi-career-ai.vercel.app/"
+    },
+    "problem": {
+      "tr": "İş arayanlar CV ve ön yazı hazırlamakta ve başvurularını organize etmekte zorlanıyor.",
+      "en": "Job seekers struggle to prepare CVs and cover letters, and to organize their applications."
+    },
+    "solution": {
+      "tr": "AI destekli içerik üretimi ve entegre Kanban takip panosuna sahip hepsi bir arada bir araç.",
+      "en": "An all-in-one tool with AI-assisted content generation and an integrated Kanban tracker."
+    },
+    "results": [
+      {
+        "tr": "GPT-4o destekli özel ön yazılar",
+        "en": "Custom cover letters powered by GPT-4o"
+      },
+      {
+        "tr": "Kullanışlı Kanban başvuru takip panosu",
+        "en": "Convenient Kanban application tracker"
+      },
+      {
+        "tr": "Freemium abonelik modeli",
+        "en": "Freemium subscription model"
+      }
+    ]
+  },
+  {
+    "id": "askbase",
+    "title": "AskBase",
+    "category": {
+      "tr": "SaaS & AI",
+      "en": "SaaS & AI"
+    },
+    "tags": [
+      {
+        "tr": "SaaS",
+        "en": "SaaS"
+      },
+      {
+        "tr": "AI",
+        "en": "AI"
+      }
+    ],
+    "description": {
+      "tr": "Yapay zeka destekli belge Q&A SaaS uygulaması. Kullanıcı belgelerini analiz etmek için pgvector, Supabase ve Stripe kullanır.",
+      "en": "AI document Q&A SaaS application. Uses pgvector, Supabase, and Stripe to analyze user documents."
+    },
+    "longDescription": {
+      "tr": "Pgvector ve Supabase kullanarak belgeler üzerinde anlamsal arama yapan ve kullanıcının belgelerine dayanarak soruları yanıtlayan bir yapay zeka aracı.",
+      "en": "An AI tool that performs semantic search over documents using pgvector and Supabase, answering questions based on user-provided files."
+    },
+    "tech": [
+      "Next.js",
+      "pgvector",
+      "Supabase",
+      "Stripe",
+      "AI"
+    ],
+    "cover": "/askbase-cover.png",
+    "gallery": [],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "Kullanıcıların büyük dokümanlar içerisinde aradıkları spesifik bilgileri bulmaları vakit alıyor.",
+      "en": "Users spend too much time finding specific information within large documents."
+    },
+    "solution": {
+      "tr": "Doğal dil işleme ve vektör veritabanı ile belgelere soru sorma imkanı sağlandı.",
+      "en": "Enabled querying documents with natural language processing and vector databases."
+    },
+    "results": [
+      {
+        "tr": "Pgvector ile hızlı anlamsal arama",
+        "en": "Fast semantic search with pgvector"
+      },
+      {
+        "tr": "Belgeye özel doğru AI yanıtları",
+        "en": "Document-specific accurate AI answers"
+      }
+    ]
+  },
+  {
+    "id": "audioloop",
+    "title": "AudioLoop",
+    "category": {
+      "tr": "Tool & Media",
+      "en": "Tool & Media"
+    },
+    "tags": [
+      {
+        "tr": "Tool",
+        "en": "Tool"
+      },
+      {
+        "tr": "Media",
+        "en": "Media"
+      }
+    ],
+    "description": {
+      "tr": "Yerel çalışan Next.js ve FFmpeg tabanlı ses/video prodüksiyon akışı aracı.",
+      "en": "Locally running Next.js and FFmpeg-based audio/video production pipeline tool."
+    },
+    "longDescription": {
+      "tr": "Medya işleme süreçlerini otomatikleştiren, FFmpeg kullanarak ses ve video dosyaları üzerinde kesme, birleştirme ve düzenleme yapan bir prodüksiyon aracı.",
+      "en": "A production tool that automates media processing pipelines, performing cutting, merging, and editing on audio and video files using FFmpeg."
+    },
+    "tech": [
+      "Next.js",
+      "FFmpeg",
+      "React"
+    ],
+    "cover": "/autoloop.png",
+    "gallery": [],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "Medya dosyalarını düzenlemek için ağır ve pahalı prodüksiyon yazılımlarına ihtiyaç duyuluyor.",
+      "en": "Heavy and expensive production software is required to edit media files."
+    },
+    "solution": {
+      "tr": "Tarayıcı/Yerel tabanlı, hızlı çalışan hafif bir FFmpeg arayüzü.",
+      "en": "A browser/local-based lightweight FFmpeg interface that works fast."
+    },
+    "results": [
+      {
+        "tr": "Hızlı yerel medya işleme",
+        "en": "Fast local media processing"
+      },
+      {
+        "tr": "Pratik üretim hattı aracı",
+        "en": "Practical production pipeline tool"
+      }
+    ]
+  },
+  {
+    "id": "yummy",
+    "title": "Yummy",
+    "category": {
+      "tr": "Full-Stack & AI",
+      "en": "Full-Stack & AI"
+    },
+    "tags": [
+      {
+        "tr": "AI Destekli",
+        "en": "AI Powered"
+      },
+      {
+        "tr": "Full-Stack",
+        "en": "Full-Stack"
+      }
+    ],
+    "description": {
+      "tr": "Yapay zeka destekli restoran yönetim platformu. Tam CRUD menü ve rezervasyon sistemi, SignalR ile gerçek zamanlı bildirimler, OpenAI entegrasyonu ile akıllı yanıtlar ve moderasyon özellikleri. Ölçeklenebilir katmanlı mimari ile geliştirildi.",
+      "en": "An AI-powered restaurant management platform. Full CRUD menu and reservation system, real-time notifications with SignalR, OpenAI integration for smart replies and moderation. Built with a scalable layered architecture."
+    },
+    "longDescription": {
+      "tr": "Restoran işletmeleri için uçtan uca yönetim çözümü. Yönetici paneli üzerinden menü, kategori, ürün, rezervasyon, etkinlik ve galeri yönetimi yapılabilir. OpenAI ile yorum moderasyonu ve müşteri yanıtları otomatikleştirildi.",
+      "en": "An end-to-end management solution for restaurants. The admin panel manages menus, categories, products, reservations, events and galleries. OpenAI automates comment moderation and customer replies."
+    },
+    "tech": [
+      "ASP.NET Core Web API",
+      "MVC",
+      "SignalR",
+      "Entity Framework",
+      "OpenAI",
+      "SQL Server"
+    ],
+    "cover": "/Yummy/ApiYummy.png",
+    "gallery": [
+      "/yummy-cover.png",
+      "/Yummy/AdminYummyDashboard1.png",
+      "/Yummy/AdminYummyCategory.png",
+      "/Yummy/AdminYummyProduct.png",
+      "/Yummy/AdminYummyReservation.png",
+      "/Yummy/AdminYummyEvent.png",
+      "/Yummy/AdminYummyGallery.png",
+      "/Yummy/AdminYummyMessage.png",
+      "/Yummy/AdminYummyChef.png",
+      "/Yummy/AdminYummyComment.png",
+      "/Yummy/AdminYummyContact.png",
+      "/Yummy/AdminYummyAbout.png",
+      "/Yummy/AdminYummyFeature.png",
+      "/Yummy/AdminYummyGroupReservation.png",
+      "/Yummy/AdminYummyWhyChooseYummy.png",
+      "/Yummy/ApiYummy.png",
+      "/Yummy/ApiYummy2.png",
+      "/Yummy/ApiYummy3.png",
+      "/Yummy/ApiYummy4.png",
+      "/Yummy/ApiYummy5.png",
+      "/Yummy/ApiYummy6.png",
+      "/Yummy/ApiYummy7.png"
+    ],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "Restoranlar; rezervasyon, menü ve müşteri iletişimini dağınık araçlarla yönetiyor.",
+      "en": "Restaurants manage reservations, menus and customer communication with fragmented tools."
+    },
+    "solution": {
+      "tr": "Tek panelde toplanan, gerçek zamanlı ve AI destekli bir yönetim sistemi.",
+      "en": "A single-panel, real-time and AI-assisted management system."
+    },
+    "results": [
+      {
+        "tr": "Gerçek zamanlı rezervasyon bildirimleri",
+        "en": "Real-time reservation notifications"
+      },
+      {
+        "tr": "OpenAI ile otomatik yorum moderasyonu",
+        "en": "Automated comment moderation with OpenAI"
+      },
+      {
+        "tr": "Katmanlı, ölçeklenebilir mimari",
+        "en": "Layered, scalable architecture"
+      }
+    ]
+  },
+  {
+    "id": "virasure",
+    "title": "Virasure Platform",
+    "category": {
+      "tr": "AI & Sigorta",
+      "en": "AI & Insurance"
+    },
+    "tags": [
+      {
+        "tr": "AI Destekli",
+        "en": "AI Powered"
+      },
+      {
+        "tr": "Sigorta",
+        "en": "Insurance"
+      }
+    ],
+    "description": {
+      "tr": "Yapay zeka destekli sigorta yönetim ve bilgi sistemi. Gemini AI entegrasyonu ile akıllı arama ve özetleme, web sonuçları ile uyumluluk puanlama, modern dark theme arayüz tasarımı.",
+      "en": "An AI-powered insurance management and knowledge system. Smart search and summarization with Gemini AI, compatibility scoring with web results, and a modern dark-theme interface."
+    },
+    "longDescription": {
+      "tr": "Sigorta poliçelerini analiz eden, kullanıcı sorularını Gemini AI ile yanıtlayan ve web kaynaklarından uyumluluk puanı üreten bir platform. API tabanlı, ölçeklenebilir backend mimarisi.",
+      "en": "A platform that analyzes insurance policies, answers user questions with Gemini AI, and generates compatibility scores from web sources. API-first, scalable backend architecture."
+    },
+    "tech": [
+      "ASP.NET Core",
+      "Gemini AI",
+      "Web API",
+      "Entity Framework",
+      "SQL Server"
+    ],
+    "cover": "/Virasure/virasure-12.png",
+    "gallery": [
+      "/Virasure/virasure-1.png",
+      "/Virasure/virasure-2.png",
+      "/Virasure/virasure-3.png",
+      "/Virasure/virasure-4.png",
+      "/Virasure/virasure-5.png",
+      "/Virasure/virasure-6.png",
+      "/Virasure/virasure-7.png",
+      "/Virasure/virasure-8.png",
+      "/Virasure/virasure-9.png",
+      "/Virasure/virasure-10.png",
+      "/Virasure/virasure-11.png",
+      "/Virasure/virasure-12.png",
+      "/Virasure/virasure-13.png",
+      "/Virasure/virasure-14.png",
+      "/Virasure/virasure-15.png",
+      "/Virasure/virasure-16.png",
+      "/Virasure/virasure-17.png",
+      "/Virasure/virasure-18.png",
+      "/Virasure/virasure-19.png",
+      "/Virasure/virasure-20.png",
+      "/Virasure/virasure-21.png",
+      "/Virasure/virasure-22.png",
+      "/Virasure/virasure-23.png"
+    ],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "Sigorta bilgisi karmaşık ve kullanıcı için anlaşılması zor.",
+      "en": "Insurance information is complex and hard for users to interpret."
+    },
+    "solution": {
+      "tr": "AI destekli arama ve özetleme ile sade, puanlanmış sonuçlar.",
+      "en": "AI-assisted search and summarization delivering clean, scored results."
+    },
+    "results": [
+      {
+        "tr": "Gemini AI ile doğal dil araması",
+        "en": "Natural-language search with Gemini AI"
+      },
+      {
+        "tr": "Web sonuçlarıyla uyumluluk puanlama",
+        "en": "Compatibility scoring with web results"
+      },
+      {
+        "tr": "Modern dark theme UX",
+        "en": "Modern dark-theme UX"
+      }
+    ]
+  },
+  {
+    "id": "vitransport",
+    "title": "Vitransport Lojistik",
+    "category": {
+      "tr": "Kurumsal Web",
+      "en": "Corporate Web"
+    },
+    "tags": [
+      {
+        "tr": "Kurumsal Web",
+        "en": "Corporate Web"
+      },
+      {
+        "tr": "Lojistik",
+        "en": "Logistics"
+      }
+    ],
+    "description": {
+      "tr": "Dijital lojistikte yeni nesil taşımacılık çözümleri sunan kurumsal web platformu. Kara, deniz ve hava taşımacılığında kargo hesaplama, ekip yönetimi, hizmet tanıtımı ve çok dilli destek içeren profesyonel tasarım.",
+      "en": "A corporate web platform offering next-gen logistics solutions. Cargo calculation across land, sea and air freight, team management, service showcase, and multi-language support in a professional design."
+    },
+    "longDescription": {
+      "tr": "Lojistik firması için kurumsal tanıtım ve operasyon sitesi. Hizmet sayfaları, kargo hesaplama aracı, ekip ve iletişim modülleri ile çok dilli yapı.",
+      "en": "A corporate showcase and operations site for a logistics company. Service pages, a cargo calculation tool, team and contact modules with multi-language support."
+    },
+    "tech": [
+      "ASP.NET Core MVC",
+      "Entity Framework",
+      "SQL Server",
+      "Bootstrap",
+      "JavaScript"
+    ],
+    "cover": "/Vitransport/vitransport-25.png",
+    "gallery": [
+      "/Vitransport/vitransport-1.png",
+      "/Vitransport/vitransport-2.png",
+      "/Vitransport/vitransport-3.png",
+      "/Vitransport/vitransport-4.png",
+      "/Vitransport/vitransport-5.png",
+      "/Vitransport/vitransport-6.png",
+      "/Vitransport/vitransport-7.png",
+      "/Vitransport/vitransport-8.png",
+      "/Vitransport/vitransport-9.png",
+      "/Vitransport/vitransport-10.png",
+      "/Vitransport/vitransport-11.png",
+      "/Vitransport/vitransport-12.png",
+      "/Vitransport/vitransport-13.png",
+      "/Vitransport/vitransport-14.png",
+      "/Vitransport/vitransport-15.png",
+      "/Vitransport/vitransport-16.png",
+      "/Vitransport/vitransport-17.png",
+      "/Vitransport/vitransport-18.png",
+      "/Vitransport/vitransport-19.png",
+      "/Vitransport/vitransport-20.png",
+      "/Vitransport/vitransport-21.png",
+      "/Vitransport/vitransport-22.png",
+      "/Vitransport/vitransport-23.png",
+      "/Vitransport/vitransport-24.png",
+      "/Vitransport/vitransport-25.png"
+    ],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "Lojistik firmasının dijital varlığı ve hizmet sunumu yetersizdi.",
+      "en": "The logistics company lacked a strong digital presence and service showcase."
+    },
+    "solution": {
+      "tr": "Çok dilli, kurumsal ve hesaplama araçları içeren modern web platformu.",
+      "en": "A modern, multi-language corporate web platform with calculation tools."
+    },
+    "results": [
+      {
+        "tr": "Çok dilli kurumsal site",
+        "en": "Multi-language corporate site"
+      },
+      {
+        "tr": "Kargo hesaplama aracı",
+        "en": "Cargo calculation tool"
+      },
+      {
+        "tr": "Profesyonel hizmet sunumu",
+        "en": "Professional service showcase"
+      }
+    ]
+  },
+  {
+    "id": "melody",
+    "title": "Melody Admin Dashboard",
+    "category": {
+      "tr": "Admin Panel",
+      "en": "Admin Panel"
+    },
+    "tags": [
+      {
+        "tr": "Admin Panel",
+        "en": "Admin Panel"
+      },
+      {
+        "tr": "Analitik",
+        "en": "Analytics"
+      }
+    ],
+    "description": {
+      "tr": "EF Core & LINQ analitiği odaklı admin paneli. Müşteri, kategori, ürün ve sipariş istatistikleri, Chart.js ile görsel dashboard, gelişmiş veri sorguları ve raporlama özellikleri.",
+      "en": "An admin panel focused on EF Core & LINQ analytics. Customer, category, product and order statistics, a visual dashboard with Chart.js, advanced data queries and reporting."
+    },
+    "longDescription": {
+      "tr": "Performans optimize edilmiş LINQ sorguları ile çalışan analitik panel. Grafiksel dashboard, raporlama ve veri yönetimi modülleri.",
+      "en": "An analytics panel powered by performance-optimized LINQ queries. Graphical dashboard, reporting and data management modules."
+    },
+    "tech": [
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "LINQ",
+      "Chart.js",
+      "SQL Server"
+    ],
+    "cover": "/MelodyAdmin/Melody.png",
+    "gallery": [
+      "/MelodyAdmin/Melody.png",
+      "/MelodyAdmin/Melody2.png",
+      "/MelodyAdmin/Melody3.png",
+      "/MelodyAdmin/Melody4.png",
+      "/MelodyAdmin/Melody5.png",
+      "/MelodyAdmin/Melody6.png",
+      "/MelodyAdmin/Melody7.png",
+      "/MelodyAdmin/Melody8.png",
+      "/MelodyAdmin/Melody9.png",
+      "/MelodyAdmin/Melody10.png",
+      "/MelodyAdmin/Melody11.png",
+      "/MelodyAdmin/Melody12.png",
+      "/MelodyAdmin/Melody13.png",
+      "/MelodyAdmin/Melody14.png",
+      "/MelodyAdmin/Melody15.png",
+      "/MelodyAdmin/Melody16.png",
+      "/MelodyAdmin/Melody17.png",
+      "/MelodyAdmin/Melody18.png",
+      "/MelodyAdmin/Melody19.png",
+      "/MelodyAdmin/Melody20.png",
+      "/MelodyAdmin/Melody21.png"
+    ],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "İşletme verileri tek bir analitik görünümde toplanmıyordu.",
+      "en": "Business data was not consolidated into a single analytics view."
+    },
+    "solution": {
+      "tr": "LINQ tabanlı, grafiklerle zenginleştirilmiş bir yönetim paneli.",
+      "en": "A LINQ-based management panel enriched with charts."
+    },
+    "results": [
+      {
+        "tr": "Chart.js ile görsel dashboard",
+        "en": "Visual dashboard with Chart.js"
+      },
+      {
+        "tr": "Optimize edilmiş veritabanı sorguları",
+        "en": "Optimized database queries"
+      },
+      {
+        "tr": "Gelişmiş raporlama",
+        "en": "Advanced reporting"
+      }
+    ]
+  },
+  {
+    "id": "mvcadmin",
+    "title": "MVC Yazar Platformu",
+    "category": {
+      "tr": "CMS & Blog",
+      "en": "CMS & Blog"
+    },
+    "tags": [
+      {
+        "tr": "CMS",
+        "en": "CMS"
+      },
+      {
+        "tr": "Blog",
+        "en": "Blog"
+      }
+    ],
+    "description": {
+      "tr": "İçerik yönetimi ve tartışma platformu. Yazar dashboard'ları, içerik CRUD işlemleri, kimlik doğrulama ve rol yönetimi, admin moderasyon sistemi, görsel galeri ve sözlük modülleri.",
+      "en": "A content management and discussion platform. Author dashboards, content CRUD, authentication and role management, an admin moderation system, image gallery and dictionary modules."
+    },
+    "longDescription": {
+      "tr": "ASP.NET Core MVC ve Identity ile geliştirilen, rol tabanlı içerik platformu. Yazarlar içerik üretir, adminler modere eder.",
+      "en": "A role-based content platform built with ASP.NET Core MVC and Identity. Authors create content; admins moderate it."
+    },
+    "tech": [
+      "ASP.NET Core MVC",
+      "Entity Framework",
+      "Identity",
+      "SQL Server",
+      "Bootstrap"
+    ],
+    "cover": "/MVCADMIN/MVCYAZAR.png",
+    "gallery": [
+      "/MVCADMIN/MVCYAZAR.png",
+      "/MVCADMIN/MVCADMIN.png",
+      "/MVCADMIN/MVCADMIN1.png",
+      "/MVCADMIN/MVCADMIN2.png",
+      "/MVCADMIN/MVCADMIN3.png",
+      "/MVCADMIN/MVCADMIN4.png",
+      "/MVCADMIN/MVCADMIN5.png",
+      "/MVCADMIN/MVCADMIN6.png",
+      "/MVCADMIN/MVCADMIN7.png"
+    ],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "Çok yazarlı içerik üretimi ve moderasyon için bütünleşik bir araç yoktu.",
+      "en": "There was no integrated tool for multi-author content creation and moderation."
+    },
+    "solution": {
+      "tr": "Identity ile rol tabanlı, moderasyonlu bir CMS.",
+      "en": "A role-based, moderated CMS powered by Identity."
+    },
+    "results": [
+      {
+        "tr": "Rol tabanlı yetkilendirme",
+        "en": "Role-based authorization"
+      },
+      {
+        "tr": "Admin moderasyon sistemi",
+        "en": "Admin moderation system"
+      },
+      {
+        "tr": "Galeri ve sözlük modülleri",
+        "en": "Gallery and dictionary modules"
+      }
+    ]
+  },
+  {
+    "id": "portfolio",
+    "title": "Kişisel Portfolio Sitesi",
+    "category": {
+      "tr": "Frontend",
+      "en": "Frontend"
+    },
+    "tags": [
+      {
+        "tr": "Portfolio",
+        "en": "Portfolio"
+      },
+      {
+        "tr": "Frontend",
+        "en": "Frontend"
+      }
+    ],
+    "description": {
+      "tr": "Particles.js ağ animasyonlu, dark theme kişisel portfolio sitesi. Projeler vitrini, sertifikalar, yetenekler ve iletişim bölümleri. Typing efekti, sosyal medya entegrasyonu ve responsive tasarım.",
+      "en": "A dark-theme personal portfolio with Particles.js network animation. Project showcase, certificates, skills and contact sections. Typing effect, social integration and responsive design."
+    },
+    "longDescription": {
+      "tr": "İlk nesil portfolyo projesi. Saf HTML/CSS/JS ile geliştirildi; particles animasyonu ve typing efekti ile dikkat çekici bir sunum.",
+      "en": "The first-generation portfolio project. Built with vanilla HTML/CSS/JS; an eye-catching presentation with particles animation and typing effect."
+    },
+    "tech": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Particles.js",
+      "Responsive Design"
+    ],
+    "cover": "/AntigravityCVProject/portfolio-1.png",
+    "gallery": [
+      "/AntigravityCVProject/portfolio-1.png",
+      "/AntigravityCVProject/portfolio-2.png",
+      "/AntigravityCVProject/portfolio-3.png",
+      "/AntigravityCVProject/portfolio-4.png",
+      "/AntigravityCVProject/portfolio-5.png",
+      "/AntigravityCVProject/portfolio-6.png",
+      "/AntigravityCVProject/portfolio-7.png",
+      "/AntigravityCVProject/portfolio-8.png",
+      "/AntigravityCVProject/portfolio-9.png",
+      "/AntigravityCVProject/portfolio-10.png",
+      "/AntigravityCVProject/portfolio-11.png",
+      "/AntigravityCVProject/portfolio-12.png",
+      "/AntigravityCVProject/portfolio-13.png",
+      "/AntigravityCVProject/portfolio-14.png",
+      "/AntigravityCVProject/portfolio-15.png"
+    ],
+    "links": {
+      "github": "https://github.com/emirkale"
+    },
+    "problem": {
+      "tr": "Projeleri ve yetenekleri tek bir yerde sergileme ihtiyacı.",
+      "en": "The need to showcase projects and skills in one place."
+    },
+    "solution": {
+      "tr": "Animasyonlu, responsive ve dark theme bir vitrin sitesi.",
+      "en": "An animated, responsive, dark-theme showcase site."
+    },
+    "results": [
+      {
+        "tr": "Particles ağ animasyonu",
+        "en": "Particles network animation"
+      },
+      {
+        "tr": "Responsive tasarım",
+        "en": "Responsive design"
+      },
+      {
+        "tr": "Sosyal medya entegrasyonu",
+        "en": "Social media integration"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emir Kale | Software Developer — .NET & Web Applications</title>
+    <meta name="description"
+        content="Emir Kale - ASP.NET Core Web API, SignalR, Entity Framework Core ve yapay zeka entegrasyonları ile ölçeklenebilir backend sistemleri ve modern admin panelleri geliştiren .NET geliştiricisi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --primary-light: #eff6ff;
+            --primary-light-hover: #dbeafe;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-light: #94a3b8;
+            --border-color: #e2e8f0;
+            --border-focus: #3b82f6;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+            --container-width: 1200px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-white);
+            color: var(--text-muted);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        img {
+            user-select: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 7rem 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background-color: var(--bg-light);
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-lg);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-white);
+            border-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-light);
+            background-color: var(--bg-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-text {
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.5rem 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .btn-text:hover {
+            color: var(--primary-hover);
+        }
+
+        .btn-text svg {
+            transition: transform var(--transition-fast);
+        }
+
+        .btn-text:hover svg {
+            transform: translateX(4px);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            transition: var(--transition-normal);
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-sm);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4.5rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-normal);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 2.25rem;
+            height: 2.25rem;
+            position: relative;
+            z-index: 1010;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            background-color: var(--text-main);
+            position: absolute;
+            left: 0.375rem;
+            transition: var(--transition-normal);
+        }
+
+        .mobile-toggle span:nth-child(1) {
+            top: 0.625rem;
+        }
+
+        .mobile-toggle span:nth-child(2) {
+            top: 1.062rem;
+        }
+
+        .mobile-toggle span:nth-child(3) {
+            top: 1.5rem;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        #hero {
+            padding-top: 10rem;
+            padding-bottom: 7rem;
+            display: flex;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-badge {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-badge-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            animation: pulse-ring 2s infinite;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-shape-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            max-width: 400px;
+            max-height: 400px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.03) 100%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: 1;
+            animation: morph-blob 8s ease-in-out infinite alternate;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1;
+            border-radius: 30% 70% 70% 30% / 40% 40% 60% 60%;
+            overflow: hidden;
+            border: 4px solid var(--bg-white);
+            box-shadow: var(--shadow-xl);
+            animation: morph-blob 8s ease-in-out infinite alternate-reverse;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image-container {
+            position: relative;
+        }
+
+        .about-image-card {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .about-image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-experience-badge {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .about-exp-years {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+            display: block;
+        }
+
+        .about-exp-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-skills-section {
+            margin-top: 2rem;
+        }
+
+        .about-skills-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-badge {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .skill-badge:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .project-image-wrapper {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background-color: #e2e8f0;
+        }
+
+        .project-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .project-card:hover .project-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding: 0.25rem 0.625rem;
+            border-radius: var(--radius-full);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech-item {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background-color: var(--bg-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .project-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        /* --- CONTACT (İLETİŞİM) --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-info-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-method-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon-box {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--radius-lg);
+            background-color: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .contact-method-details h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-method-details p,
+        .contact-method-details a {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .contact-socials-wrapper {
+            margin-top: 1.5rem;
+        }
+
+        .contact-socials-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: var(--radius-lg);
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition-normal);
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--bg-white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .form-group label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            padding: 0.85rem 1.1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            transition: var(--transition-normal);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-light);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            background-color: var(--bg-white);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .error-message {
+            font-size: 0.8rem;
+            color: #ef4444;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group.has-error .form-control {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+        }
+
+        .form-group.has-error .error-message {
+            display: block;
+        }
+
+        .form-success-wrapper {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+            animation: fade-in-up 0.5s ease;
+        }
+
+        .success-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: #d1fae5;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .form-success-wrapper h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-success-wrapper p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- SERTIFIKALAR --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .cert-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition-normal);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .cert-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .cert-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* --- LIGHTBOX --- */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            animation: fade-in 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: fade-in-up 0.4s ease;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3rem;
+            height: 3rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox-prev {
+            left: 1.5rem;
+        }
+
+        .lightbox-next {
+            right: 1.5rem;
+        }
+
+        /* --- ANIMASYONLAR --- */
+        @keyframes morph-blob {
+            0% {
+                border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            }
+
+            100% {
+                border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
+            }
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.15s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.45s;
+        }
+
+        /* --- RESPONSIVE TASARIM --- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                gap: 2.5rem;
+            }
+
+            .about-grid {
+                gap: 3rem;
+            }
+
+            .contact-grid {
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            section {
+                padding: 5rem 0;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+                text-align: center;
+            }
+
+            .hero-text {
+                align-items: center;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .about-image-container {
+                max-width: 450px;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 4.5rem;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 4.5rem);
+                background-color: var(--bg-white);
+                flex-direction: column;
+                padding: 3rem 1.5rem;
+                gap: 2rem;
+                transform: translateX(100%);
+                transition: transform var(--transition-normal);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.25rem;
+                font-weight: 600;
+                width: 100%;
+                text-align: center;
+                display: block;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 1.75rem;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .about-experience-badge {
+                right: -0.5rem;
+                bottom: -1rem;
+                padding: 1rem;
+            }
+
+            .about-exp-years {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASYON -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">
+                EMİR KALE <span class="logo-dot"></span>
+            </a>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Menüyü Aç/Kapat">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="nav-link active">Ana Sayfa</a></li>
+                <li><a href="#about" class="nav-link">Hakkımda</a></li>
+                <li><a href="#work" class="nav-link">Projeler</a></li>
+                <li><a href="#certificates" class="nav-link">Sertifikalar</a></li>
+                <li><a href="#contact" class="nav-link">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO BÖLÜMÜ -->
+    <section id="hero">
+        <div class="container hero-grid">
+            <div class="hero-text reveal">
+                <div class="hero-badge">
+                    <span class="hero-badge-pulse"></span>
+                    Yeni Projeler için Müsait
+                </div>
+                <h1 class="hero-title">
+                    Dijital Ürünleri Sıfırdan <span>İnşa Ediyorum</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Ben Emir Kale. 22 yaşında bir girişimci adayı ve yazılım geliştiricisiyim. ASP.NET Core Web API,
+                    SignalR, Next.js, TypeScript ve yapay zeka entegrasyonları ile modern, ölçeklenebilir dijital
+                    ürünler
+                    geliştiriyorum.
+                </p>
+                <div class="hero-actions">
+                    <a href="#work" class="btn btn-primary">Projelerimi İncele</a>
+                    <a href="Emir_Kale_ASPNET_Core_Developer_CV.pdf" class="btn btn-secondary" target="_blank"
+                        rel="noopener noreferrer">CV'mi İndir</a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal reveal-delay-2">
+                <div class="hero-shape-bg"></div>
+                <div class="hero-image-wrapper">
+                    <img src="ChatGPT Image 3 May 2026 14_03_18.png" alt="Emir Kale - Profil Fotoğrafı" loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAKKIMDA -->
+    <section id="about" class="section-alt">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-tag">HAKKIMDA</span>
+                <h2 class="section-title">Beni Yakından Tanıyın</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image-container reveal">
+                    <div class="about-image-card">
+                        <img src="ChatGPT Image 3 May 2026 14_03_18.png" alt="Emir Kale" loading="lazy">
+                    </div>
+                    <div class="about-experience-badge">
+                        <span class="about-exp-years">22</span>
+                        <span class="about-exp-text">Yaşında</span>
+                    </div>
+                </div>
+
+                <div class="about-text reveal reveal-delay-2">
+                    <h3>Girişimci Ruhlu, Full-Stack Geliştirici</h3>
+                    <p>
+                        Merhaba, ben Emir Kale. Bandırma Onyedi Eylül Üniversitesi Bilgisayar Programcılığı bölümünde
+                        öğrenimime devam ederken, teorik bilgilerimi gerçek dünya projelerine dönüştürmeye
+                        odaklanıyorum. Web uygulamaları, mobil oyunlar ve içerik araçları dahil olmak üzere birden fazla
+                        dijital ürün üzerinde bağımsız olarak çalışıyorum.
+                    </p>
+                    <p>
+                        Fikri alıp sıfırdan çalışan bir ürüne dönüştürme sürecinin her aşamasında yer alıyorum;
+                        tasarımdan geliştirmeye, deployment'tan pazarlamaya kadar. Yapay zeka destekli geliştirme
+                        araçlarını aktif olarak kullanarak hem hızlı hem de kaliteli ürünler ortaya çıkarmaya
+                        odaklanıyorum.
+                    </p>
+                    <p>
+                        .NET ekosistemi, Next.js, TypeScript, Supabase ve OpenAI entegrasyonları başlıca çalıştığım
+                        teknolojiler arasında yer alıyor. Temiz mimari, API-first sistem tasarımı ve ölçeklenebilir
+                        backend geliştirme konularına özel önem veriyorum. Sürekli öğreniyor, sürekli inşa ediyorum.
+                    </p>
+
+                    <div class="about-skills-section">
+                        <h4 class="about-skills-title">Teknoloji Yığını</h4>
+                        <div class="skills-grid">
+                            <span class="skill-badge">ASP.NET Core</span>
+                            <span class="skill-badge">Entity Framework Core</span>
+                            <span class="skill-badge">LINQ</span>
+                            <span class="skill-badge">SQL Server</span>
+                            <span class="skill-badge">SignalR</span>
+                            <span class="skill-badge">Web API Development</span>
+                            <span class="skill-badge">RESTful APIs</span>
+                            <span class="skill-badge">JWT Authentication</span>
+                            <span class="skill-badge">Next.js</span>
+                            <span class="skill-badge">TypeScript</span>
+                            <span class="skill-badge">Supabase</span>
+                            <span class="skill-badge">OpenAI Integration</span>
+                            <span class="skill-badge">MVC</span>
+                            <span class="skill-badge">N-Tier Architecture</span>
+                            <span class="skill-badge">Git &amp; GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJELER -->
+    <section id="work">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-tag">PROJELER</span>
+                <h2 class="section-title">Geliştirdiğim Projeler</h2>
+            </div>
+
+            <div class="work-grid">
+                <!-- Proje 1: Yummy Restaurant System -->
+                <div class="project-card reveal">
+                    <div class="project-image-wrapper">
+                        <img src="Yummy/AdminYummyDashboard.png" alt="Yummy Restaurant System - Dashboard"
+                            loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">AI Destekli</span>
+                            <span class="project-tag">Full-Stack</span>
+                        </div>
+                        <h3 class="project-title">Yummy Restaurant System</h3>
+                        <p class="project-description">
+                            Yapay zeka destekli restoran yönetim platformu. Tam CRUD menü ve rezervasyon sistemi,
+                            SignalR ile gerçek zamanlı bildirimler, OpenAI entegrasyonu ile akıllı yanıtlar ve
+                            moderasyon
+                            özellikleri. Ölçeklenebilir katmanlı mimari ile geliştirildi.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-item">ASP.NET Core Web API</span>
+                            <span class="project-tech-item">MVC</span>
+                            <span class="project-tech-item">SignalR</span>
+                            <span class="project-tech-item">Entity Framework</span>
+                            <span class="project-tech-item">OpenAI</span>
+                            <span class="project-tech-item">SQL Server</span>
+                        </div>
+                        <div class="project-gallery">
+                            <img src="Yummy/AdminYummyDashboard1.png" alt="Yummy Dashboard Stats" class="gallery-img"
+                                loading="lazy">
+                            <img src="Yummy/AdminYummyReservation.png" alt="Yummy Rezervasyon" class="gallery-img"
+                                loading="lazy">
+                            <img src="Yummy/ApiYummy.png" alt="Yummy API" class="gallery-img" loading="lazy">
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-text" onclick="openGallery('yummy')" style="cursor:pointer;">
+                                Tüm Görselleri Gör
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje 2: Virasure Platform -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-image-wrapper">
+                        <img src="Virasure/Ekran görüntüsü 2026-02-22 132136.png"
+                            alt="Virasure Platform - AI Sigorta Arama" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">AI Destekli</span>
+                            <span class="project-tag">Sigorta</span>
+                        </div>
+                        <h3 class="project-title">Virasure Platform</h3>
+                        <p class="project-description">
+                            Yapay zeka destekli sigorta yönetim ve bilgi sistemi. Gemini AI entegrasyonu ile akıllı
+                            arama ve özetleme, web sonuçları ile uyumluluk puanlama, modern dark theme arayüz tasarımı.
+                            Ölçeklenebilir backend mimarisi ve API tabanlı tasarım.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-item">ASP.NET Core</span>
+                            <span class="project-tech-item">Gemini AI</span>
+                            <span class="project-tech-item">Web API</span>
+                            <span class="project-tech-item">Entity Framework</span>
+                            <span class="project-tech-item">SQL Server</span>
+                        </div>
+                        <div class="project-gallery">
+                            <img src="Virasure/Ekran görüntüsü 2026-02-22 134628.png" alt="Virasure Detay"
+                                class="gallery-img" loading="lazy">
+                            <img src="Virasure/Ekran görüntüsü 2026-02-22 134327.png" alt="Virasure Arama"
+                                class="gallery-img" loading="lazy">
+                            <img src="Virasure/Ekran görüntüsü 2026-02-22 134030.png" alt="Virasure Sonuçlar"
+                                class="gallery-img" loading="lazy">
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-text" onclick="openGallery('virasure')" style="cursor:pointer;">
+                                Tüm Görselleri Gör
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje 3: Vitransport -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-image-wrapper">
+                        <img src="Vitransport/Vitransport.png" alt="Vitransport - Lojistik Platformu" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Kurumsal Web</span>
+                            <span class="project-tag">Lojistik</span>
+                        </div>
+                        <h3 class="project-title">Vitransport Lojistik</h3>
+                        <p class="project-description">
+                            Dijital lojistikte yeni nesil taşımacılık çözümleri sunan kurumsal web platformu. Kara,
+                            deniz ve hava taşımacılığında kargo hesaplama, ekip yönetimi, hizmet tanıtımı ve çok dilli
+                            destek içeren profesyonel tasarım.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-item">ASP.NET Core MVC</span>
+                            <span class="project-tech-item">Entity Framework</span>
+                            <span class="project-tech-item">SQL Server</span>
+                            <span class="project-tech-item">Bootstrap</span>
+                            <span class="project-tech-item">JavaScript</span>
+                        </div>
+                        <div class="project-gallery">
+                            <img src="Vitransport/Ekran görüntüsü 2026-03-26 174452.png" alt="Vitransport Sayfa"
+                                class="gallery-img" loading="lazy">
+                            <img src="Vitransport/Ekran görüntüsü 2026-03-26 174632.png" alt="Vitransport Detay"
+                                class="gallery-img" loading="lazy">
+                            <img src="Vitransport/Ekran görüntüsü 2026-03-26 174644.png" alt="Vitransport Ekip"
+                                class="gallery-img" loading="lazy">
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-text" onclick="openGallery('vitransport')" style="cursor:pointer;">
+                                Tüm Görselleri Gör
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje 4: Melody Admin Dashboard -->
+                <div class="project-card reveal">
+                    <div class="project-image-wrapper">
+                        <img src="MelodyAdmin/Melody.png" alt="Melody Admin Dashboard" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Admin Panel</span>
+                            <span class="project-tag">Analitik</span>
+                        </div>
+                        <h3 class="project-title">Melody Admin Dashboard</h3>
+                        <p class="project-description">
+                            EF Core & LINQ analitiği odaklı admin paneli. Müşteri, kategori, ürün ve sipariş
+                            istatistikleri, Chart.js ile görsel dashboard, gelişmiş veri sorguları ve raporlama
+                            özellikleri. Performans optimize edilmiş veritabanı sorguları.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-item">ASP.NET Core</span>
+                            <span class="project-tech-item">Entity Framework Core</span>
+                            <span class="project-tech-item">LINQ</span>
+                            <span class="project-tech-item">Chart.js</span>
+                            <span class="project-tech-item">SQL Server</span>
+                        </div>
+                        <div class="project-gallery">
+                            <img src="MelodyAdmin/Melody2.png" alt="Melody İstatistikler" class="gallery-img"
+                                loading="lazy">
+                            <img src="MelodyAdmin/Melody4.png" alt="Melody Grafikler" class="gallery-img"
+                                loading="lazy">
+                            <img src="MelodyAdmin/Melody5.png" alt="Melody Ürünler" class="gallery-img" loading="lazy">
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-text" onclick="openGallery('melody')" style="cursor:pointer;">
+                                Tüm Görselleri Gör
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje 5: MVC Yazar Platformu -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-image-wrapper">
+                        <img src="MVCADMİN/MVCYAZAR.png" alt="MVC Yazar Platformu" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">CMS</span>
+                            <span class="project-tag">Blog</span>
+                        </div>
+                        <h3 class="project-title">MVC Yazar Platformu</h3>
+                        <p class="project-description">
+                            İçerik yönetimi ve tartışma platformu. Yazar dashboard'ları, içerik CRUD işlemleri,
+                            kimlik doğrulama ve rol yönetimi, admin moderasyon sistemi, görsel galeri ve sözlük
+                            modülleri. MVC pattern ile geliştirildi.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-item">ASP.NET Core MVC</span>
+                            <span class="project-tech-item">Entity Framework</span>
+                            <span class="project-tech-item">Identity</span>
+                            <span class="project-tech-item">SQL Server</span>
+                            <span class="project-tech-item">Bootstrap</span>
+                        </div>
+                        <div class="project-gallery">
+                            <img src="MVCADMİN/MVCADMİN.png" alt="MVC Admin Giriş" class="gallery-img" loading="lazy">
+                            <img src="MVCADMİN/MVCADMİN1.png" alt="MVC Admin Panel" class="gallery-img" loading="lazy">
+                            <img src="MVCADMİN/MVCADMİN3.png" alt="MVC Admin Detay" class="gallery-img" loading="lazy">
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-text" onclick="openGallery('mvcadmin')" style="cursor:pointer;">
+                                Tüm Görselleri Gör
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje 6: Kişisel Portfolio (AntigravityCV) -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-image-wrapper">
+                        <img src="AntigravityCVProject/Ekran görüntüsü 2026-02-14 121115.png"
+                            alt="Kişisel Portfolio Website" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Portfolio</span>
+                            <span class="project-tag">Frontend</span>
+                        </div>
+                        <h3 class="project-title">Kişisel Portfolio Sitesi</h3>
+                        <p class="project-description">
+                            Particles.js ağ animasyonlu, dark theme kişisel portfolio sitesi. Projeler vitrini,
+                            sertifikalar, yetenekler ve iletişim bölümleri. Typing efekti, sosyal medya entegrasyonu ve
+                            responsive tasarım ile modern bir sunum.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-item">HTML5</span>
+                            <span class="project-tech-item">CSS3</span>
+                            <span class="project-tech-item">JavaScript</span>
+                            <span class="project-tech-item">Particles.js</span>
+                            <span class="project-tech-item">Responsive Design</span>
+                        </div>
+                        <div class="project-gallery">
+                            <img src="AntigravityCVProject/Ekran görüntüsü 2026-02-14 121127.png" alt="Portfolio Detay"
+                                class="gallery-img" loading="lazy">
+                            <img src="AntigravityCVProject/Ekran görüntüsü 2026-02-14 121212.png"
+                                alt="Portfolio Projeler" class="gallery-img" loading="lazy">
+                            <img src="AntigravityCVProject/Ekran görüntüsü 2026-02-14 121239.png"
+                                alt="Portfolio Sertifikalar" class="gallery-img" loading="lazy">
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-text" onclick="openGallery('portfolio')" style="cursor:pointer;">
+                                Tüm Görselleri Gör
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERTİFİKALAR -->
+    <section id="certificates" class="section-alt">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-tag">SERTİFİKALAR</span>
+                <h2 class="section-title">Aldığım Sertifikalar</h2>
+            </div>
+
+            <div class="cert-grid">
+                <a href="certificate-ygok7oi6yqju-1772716952.pdf" target="_blank" class="cert-card reveal"
+                    title="Claude Code in Action - Anthropic">
+                    <div class="cert-icon">🤖</div>
+                    <div class="cert-info">
+                        <h4>Claude Code in Action</h4>
+                        <p>Anthropic Courses • Mart 2026</p>
+                    </div>
+                </a>
+
+                <a href="certificate-cemxs8baeitr-1772718639.pdf" target="_blank" class="cert-card reveal"
+                    title="Claude 101 - Anthropic">
+                    <div class="cert-icon">🧠</div>
+                    <div class="cert-info">
+                        <h4>Claude 101</h4>
+                        <p>Anthropic Courses • 2026</p>
+                    </div>
+                </a>
+
+                <a href="UC-d3bbd120-cf0b-4b4b-8e17-775707fad35c.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-1"
+                    title="Database Mastery: ASP.NET Core ile MongoDB-PostgreSQL-MSSQL">
+                    <div class="cert-icon">💾</div>
+                    <div class="cert-info">
+                        <h4>Database Mastery: ASP.NET Core ile MongoDB-PostgreSQL-MSSQL</h4>
+                        <p>Udemy • Mayıs 2026 • 16.5 Saat</p>
+                    </div>
+                </a>
+
+                <a href="UC-14e1b6f6-40a7-40ed-901b-8aaf9533378d.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-1"
+                    title="EntityFramework Core Masterclass (70+ LINQ & EF Core Metodu)">
+                    <div class="cert-icon">📊</div>
+                    <div class="cert-info">
+                        <h4>EntityFramework Core Masterclass (70+ LINQ & EF Core)</h4>
+                        <p>Udemy • Ocak 2026 • 12 Saat</p>
+                    </div>
+                </a>
+
+                <a href="UC-179a93f6-8f2a-47df-bc30-989501c19039.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-2"
+                    title="AspNet Core ile Güvenlik: Identity & JWT Masterclass">
+                    <div class="cert-icon">🔒</div>
+                    <div class="cert-info">
+                        <h4>AspNet Core ile Güvenlik: Identity & JWT Masterclass</h4>
+                        <p>Udemy • Ocak 2026 • 14 Saat</p>
+                    </div>
+                </a>
+
+                <a href="UC-210aceb2-350f-447f-92d0-6a5e4c7c48db.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-2"
+                    title="ASP.NET Core ile Yapay Zeka Entegrasyonları: Sigorta Projesi">
+                    <div class="cert-icon">🤖</div>
+                    <div class="cert-info">
+                        <h4>ASP.NET Core ile Yapay Zeka: Sigorta Projesi</h4>
+                        <p>Udemy • Şubat 2026 • 28 Saat</p>
+                    </div>
+                </a>
+
+                <a href="UC-533cba1f-609f-43ac-a1e5-414c17db2894.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-3" title="C# ile 20 Derste 20 Uygulamalı Proje">
+                    <div class="cert-icon">🛠️</div>
+                    <div class="cert-info">
+                        <h4>C# ile 20 Derste 20 Uygulamalı Proje</h4>
+                        <p>Udemy • Mayıs 2025 • 16 Saat</p>
+                    </div>
+                </a>
+
+                <a href="UC-56b8ef6f-fde6-43a3-9e89-f8e689e08dbb.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-3"
+                    title="Uygulama Geliştirerek C# Öğrenin: A'dan Z'ye Eğitim Seti">
+                    <div class="cert-icon">💻</div>
+                    <div class="cert-info">
+                        <h4>Uygulama Geliştirerek C# Öğrenin: A'dan Z'ye</h4>
+                        <p>Udemy • Temmuz 2025 • 22 Saat</p>
+                    </div>
+                </a>
+
+                <a href="UC-9e14a880-e3bb-40cb-9540-09579f982230.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-3" title="C# .Net ile Yapay Zeka Entegrasyonları">
+                    <div class="cert-icon">🧠</div>
+                    <div class="cert-info">
+                        <h4>C# .Net ile Yapay Zeka Entegrasyonları</h4>
+                        <p>Udemy • Mayıs 2025 • 8 Saat</p>
+                    </div>
+                </a>
+
+                <a href="UC-cd027ac1-43d9-42f0-8549-3bc60b096d40.pdf" target="_blank"
+                    class="cert-card reveal reveal-delay-3" title="Asp.Net Mvc5 ile Online Ticari Otomasyon">
+                    <div class="cert-icon">🛒</div>
+                    <div class="cert-info">
+                        <h4>Asp.Net Mvc5 ile Online Ticari Otomasyon</h4>
+                        <p>Udemy • Nisan 2026 • 27 Saat</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title-wrapper reveal">
+                <span class="section-tag">İLETİŞİM</span>
+                <h2 class="section-title">Benimle İletişime Geçin</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div>
+                        <h3 class="contact-info-title">Bir Projeniz mi Var?</h3>
+                        <p class="contact-info-text">
+                            Yeni projeler, iş birliği fırsatları veya sadece bir merhaba için benimle iletişime
+                            geçebilirsiniz. En kısa sürede dönüş yapacağım.
+                        </p>
+                    </div>
+
+                    <div class="contact-methods">
+                        <div class="contact-method-item">
+                            <div class="contact-icon-box">📧</div>
+                            <div class="contact-method-details">
+                                <h4>E-Posta</h4>
+                                <a href="mailto:emirkale03@gmail.com">emirkale03@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method-item">
+                            <div class="contact-icon-box">📱</div>
+                            <div class="contact-method-details">
+                                <h4>Telefon</h4>
+                                <a href="tel:+905453305110">+90 545 330 51 10</a>
+                            </div>
+                        </div>
+                        <div class="contact-method-item">
+                            <div class="contact-icon-box">📍</div>
+                            <div class="contact-method-details">
+                                <h4>Konum</h4>
+                                <p>İstanbul, Türkiye</p>
+                            </div>
+                        </div>
+                        <div class="contact-method-item">
+                            <div class="contact-icon-box">🎓</div>
+                            <div class="contact-method-details">
+                                <h4>Eğitim</h4>
+                                <p>Bandırma Onyedi Eylül Üniversitesi<br>Bilgisayar Programcılığı</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-socials-wrapper">
+                        <h4 class="contact-socials-title">Sosyal Medya</h4>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/emir-kale-7b8b4830b/" target="_blank"
+                                rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn" title="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                                </svg>
+                            </a>
+                            <a href="https://github.com/emirkale" target="_blank" rel="noopener noreferrer"
+                                class="social-btn" aria-label="GitHub" title="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                            </a>
+                            <a href="mailto:emirkale03@gmail.com" class="social-btn" aria-label="E-Posta"
+                                title="E-Posta Gönder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757ZM16 11.801V4.697l-5.803 3.546L16 11.801Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card reveal reveal-delay-2">
+                    <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="contact-name">İsim Soyisim</label>
+                            <input type="text" id="contact-name" class="form-control" placeholder="Adınızı girin"
+                                required>
+                            <span class="error-message">Lütfen adınızı girin.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">E-Posta</label>
+                            <input type="email" id="contact-email" class="form-control" placeholder="ornek@email.com"
+                                required>
+                            <span class="error-message">Geçerli bir e-posta adresi girin.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Konu</label>
+                            <input type="text" id="contact-subject" class="form-control"
+                                placeholder="Mesajınızın konusu" required>
+                            <span class="error-message">Lütfen bir konu girin.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Mesaj</label>
+                            <textarea id="contact-message" class="form-control" rows="5"
+                                placeholder="Mesajınızı yazın..." required></textarea>
+                            <span class="error-message">Lütfen mesajınızı yazın.</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Mesaj Gönder</button>
+                    </form>
+                    <div class="form-success-wrapper" id="form-success">
+                        <div class="success-icon">✓</div>
+                        <h3>Mesajınız Gönderildi!</h3>
+                        <p>En kısa sürede size dönüş yapacağım.</p>
+                        <button class="btn btn-secondary" onclick="resetForm()">Yeni Mesaj Gönder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <a href="#hero" class="logo">
+                EMİR KALE <span class="logo-dot"></span>
+            </a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/emir-kale-7b8b4830b/" target="_blank" rel="noopener noreferrer"
+                    class="social-btn" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                </a>
+                <a href="https://github.com/emirkale" target="_blank" rel="noopener noreferrer" class="social-btn"
+                    aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                </a>
+                <a href="mailto:emirkale03@gmail.com" class="social-btn" aria-label="E-Posta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757ZM16 11.801V4.697l-5.803 3.546L16 11.801Z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-copyright">© 2026 Emir Kale. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-overlay" id="lightbox-overlay">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Kapat">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Önceki">‹</button>
+        <img src="" alt="Büyük Görsel" id="lightbox-img">
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Sonraki">›</button>
+    </div>
+
+    <script>
+        // === GALLERY DATA ===
+        const galleries = {
+            yummy: [
+                'Yummy/AdminYummyDashboard.png',
+                'Yummy/AdminYummyDashboard1.png',
+                'Yummy/AdminYummyCategory.png',
+                'Yummy/AdminYummyProduct.png',
+                'Yummy/AdminYummyReservation.png',
+                'Yummy/AdminYummyEvent.png',
+                'Yummy/AdminYummyGallery.png',
+                'Yummy/AdminYummyMessage.png',
+                'Yummy/AdminYummyChef.png',
+                'Yummy/AdminYummyComment.png',
+                'Yummy/AdminYummyContact.png',
+                'Yummy/ApiYummy.png',
+                'Yummy/ApiYummy2.png',
+                'Yummy/ApiYummy3.png',
+                'Yummy/ApiYummy4.png',
+                'Yummy/ApiYummy5.png',
+                'Yummy/ApiYummy6.png',
+                'Yummy/ApiYummy7.png'
+            ],
+            virasure: [
+                'Virasure/Ekran görüntüsü 2026-02-22 132136.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 132231.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134030.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134327.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134339.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134353.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134447.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134505.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134513.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134524.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134628.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134646.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134658.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134730.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134806.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 134829.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 142659.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 142839.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 142859.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 142933.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 142943.png',
+                'Virasure/Ekran görüntüsü 2026-02-22 143031.png',
+                'Virasure/Ekran görüntüsü 2026-02-21 130323.png'
+            ],
+            vitransport: [
+                'Vitransport/Vitransport.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 114753.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174440.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174452.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174501.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174509.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174535.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174542.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174632.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174644.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 174707.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175159.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175242.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175302.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175316.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175322.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175334.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175341.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175347.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175355.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175407.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175418.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175442.png',
+                'Vitransport/Ekran görüntüsü 2026-03-26 175523.png'
+            ],
+            melody: [
+                'MelodyAdmin/Melody.png',
+                'MelodyAdmin/Melody2.png',
+                'MelodyAdmin/Melody3.png',
+                'MelodyAdmin/Melody4.png',
+                'MelodyAdmin/Melody5.png',
+                'MelodyAdmin/Melody6.png',
+                'MelodyAdmin/Melody7.png',
+                'MelodyAdmin/Melody8.png',
+                'MelodyAdmin/Melody9.png',
+                'MelodyAdmin/Melody10.png',
+                'MelodyAdmin/Melody11.png',
+                'MelodyAdmin/Melody12.png',
+                'MelodyAdmin/Melody13.png',
+                'MelodyAdmin/Melody14.png',
+                'MelodyAdmin/Melody15.png',
+                'MelodyAdmin/Melody16.png',
+                'MelodyAdmin/Melody17.png',
+                'MelodyAdmin/Melody18.png',
+                'MelodyAdmin/Melody19.png',
+                'MelodyAdmin/Melody20.png',
+                'MelodyAdmin/Melody21.png'
+            ],
+            mvcadmin: [
+                'MVCADMİN/MVCYAZAR.png',
+                'MVCADMİN/MVCADMİN.png',
+                'MVCADMİN/MVCADMİN1.png',
+                'MVCADMİN/MVCADMİN2.png',
+                'MVCADMİN/MVCADMİN3.png',
+                'MVCADMİN/MVCADMİN4.png',
+                'MVCADMİN/MVCADMİN5.png',
+                'MVCADMİN/MVCADMİN6.png',
+                'MVCADMİN/MVCADMİN7.png'
+            ],
+            portfolio: [
+                'AntigravityCVProject/Ekran görüntüsü 2026-02-14 121115.png',
+                'AntigravityCVProject/Ekran görüntüsü 2026-02-14 121127.png',
+                'AntigravityCVProject/Ekran görüntüsü 2026-02-14 121155.png',
+                'AntigravityCVProject/Ekran görüntüsü 2026-02-14 121212.png',
+                'AntigravityCVProject/Ekran görüntüsü 2026-02-14 121222.png',
+                'AntigravityCVProject/Ekran görüntüsü 2026-02-14 121239.png',
+                'AntigravityCVProject/Ekran görüntüsü 2026-02-14 121255.png',
+                'AntigravityCVProject/Ekran Görüntüsü (102).png',
+                'AntigravityCVProject/Ekran Görüntüsü (103).png',
+                'AntigravityCVProject/Ekran Görüntüsü (104).png',
+                'AntigravityCVProject/Ekran Görüntüsü (105).png',
+                'AntigravityCVProject/Ekran Görüntüsü (106).png',
+                'AntigravityCVProject/Ekran Görüntüsü (107).png',
+                'AntigravityCVProject/Ekran Görüntüsü (108).png',
+                'AntigravityCVProject/Ekran Görüntüsü (109).png'
+            ]
+        };
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // === LIGHTBOX ===
+        function openGallery(key) {
+            currentGallery = galleries[key] || [];
+            currentIndex = 0;
+            if (currentGallery.length > 0) {
+                showLightbox(currentGallery[0]);
+            }
+        }
+
+        function showLightbox(src) {
+            const overlay = document.getElementById('lightbox-overlay');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const overlay = document.getElementById('lightbox-overlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-overlay').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.getElementById('lightbox-prev').addEventListener('click', function (e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            document.getElementById('lightbox-img').src = currentGallery[currentIndex];
+        });
+
+        document.getElementById('lightbox-next').addEventListener('click', function (e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            document.getElementById('lightbox-img').src = currentGallery[currentIndex];
+        });
+
+        // Single image click lightbox
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function () {
+                const card = this.closest('.project-card');
+                const allImgs = card.querySelectorAll('.gallery-img');
+                const mainImg = card.querySelector('.project-image-wrapper img');
+                currentGallery = [mainImg.src, ...Array.from(allImgs).map(i => i.src)];
+                currentIndex = Array.from(allImgs).indexOf(this) + 1;
+                showLightbox(this.src);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            const overlay = document.getElementById('lightbox-overlay');
+            if (!overlay.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+            if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+        });
+
+        // === NAVIGATION ===
+        const header = document.getElementById('header');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY + 200;
+            sections.forEach(section => {
+                const id = section.getAttribute('id');
+                const link = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (link) {
+                    if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // === SCROLL REVEAL ===
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // === CONTACT FORM ===
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('form-success');
+            let isValid = true;
+
+            form.querySelectorAll('.form-group').forEach(group => {
+                const input = group.querySelector('.form-control');
+                if (!input.value.trim()) {
+                    group.classList.add('has-error');
+                    isValid = false;
+                } else {
+                    group.classList.remove('has-error');
+                }
+            });
+
+            const emailInput = document.getElementById('contact-email');
+            if (emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                emailInput.closest('.form-group').classList.add('has-error');
+                isValid = false;
+            }
+
+            if (isValid) {
+                form.style.display = 'none';
+                success.style.display = 'block';
+            }
+        }
+
+        function resetForm() {
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('form-success');
+            form.reset();
+            form.style.display = 'flex';
+            success.style.display = 'none';
+            form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+        }
+    </script>
+</body>
+
+</html>
