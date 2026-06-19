@@ -26,26 +26,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# certificates and images
+# certificates
 *.pdf
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.mp4
 
-# project image folders
+# root project image folders (keep these ignored)
 /AntigravityCVProject/
 /MVCADMİN/
 /MelodyAdmin/
 /Virasure/
 /Vitransport/
 /Yummy/
-public/AntigravityCVProject/
-public/MVCADMIN/
-public/MelodyAdmin/
-public/ViCareer/
-public/Virasure/
-public/Vitransport/
-public/Yummy/
