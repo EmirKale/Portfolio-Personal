@@ -9,6 +9,7 @@ export const profile = {
   phoneHref: "+905453305110",
   github: "https://github.com/emirkale",
   linkedin: "https://www.linkedin.com/in/emirkale/",
+  instagram: "https://www.instagram.com/lemirkl/",
   cv: "/CV.pdf",
   avatar: "/profile.png",
   university: {

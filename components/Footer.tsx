@@ -92,6 +92,16 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href="https://www.instagram.com/lemirkl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-cream-dim hover:text-cream transition-colors duration-300 link-underline"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
                   href="mailto:emirkale03@gmail.com"
                   className="text-sm text-cream-dim hover:text-cream transition-colors duration-300 link-underline"
                 >

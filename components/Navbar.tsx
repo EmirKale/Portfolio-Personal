@@ -115,6 +115,9 @@ export default function Navbar() {
                   <a href="https://www.linkedin.com/in/emirkale/" target="_blank" rel="noopener noreferrer" className="hover:text-bg transition-colors">
                     LinkedIn
                   </a>
+                  <a href="https://www.instagram.com/lemirkl/" target="_blank" rel="noopener noreferrer" className="hover:text-bg transition-colors">
+                    Instagram
+                  </a>
                 </motion.div>
               </div>
             </motion.div>

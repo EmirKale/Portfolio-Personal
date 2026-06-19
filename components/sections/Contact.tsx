@@ -132,6 +132,14 @@ export default function Contact() {
                 LinkedIn
               </a>
               <a
+                href={profile.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 text-xs font-medium uppercase tracking-[0.15em] text-cream border border-border-line rounded-full hover:bg-surface-hover hover:border-cream/20 transition-all duration-300"
+              >
+                Instagram
+              </a>
+              <a
                 href={profile.cv}
                 download
                 className="px-5 py-2.5 text-xs font-medium uppercase tracking-[0.15em] text-cream border border-border-line rounded-full hover:bg-surface-hover hover:border-cream/20 transition-all duration-300"
