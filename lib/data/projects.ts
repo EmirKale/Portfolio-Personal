@@ -27,12 +27,12 @@ export interface Project {
   results: Localized[];
 }
 
-import { supabaseClient } from '../supabase/client';
+import { supabaseAdmin } from '../supabase/admin';
 
 export const featuredProjectIds = ["vicareerai", "askbase", "yummy", "virasure"];
 
 export async function getProjectsFromDB(): Promise<Project[]> {
-  const { data, error } = await supabaseClient
+  const { data, error } = await supabaseAdmin
     .from('projects')
     .select('id, content');
 
