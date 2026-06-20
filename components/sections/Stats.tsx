@@ -13,7 +13,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   useEffect(() => {
     if (!isInView) return;
     let start = 0;
-    const duration = 2000;
+    const duration = 800;
     const startTime = Date.now();
 
     const tick = () => {
@@ -66,7 +66,7 @@ export default function Stats() {
               } ${idx < 2 ? 'max-lg:border-b max-lg:border-border-line' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              transition={{ duration: 0.6 }}
             >
               <div className="text-display-lg font-display font-bold text-cream mb-2">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
