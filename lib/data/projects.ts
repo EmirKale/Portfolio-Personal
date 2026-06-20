@@ -34,13 +34,15 @@ export const featuredProjectIds = ["vicareerai", "askbase", "yummy", "virasure"]
 export async function getProjectsFromDB(): Promise<Project[]> {
   const { data, error } = await supabaseClient
     .from('projects')
-    .select('content');
+    .select('id, content');
 
   if (error) {
     console.error('Error fetching projects:', error);
     return [];
   }
 
-  // Parse content if needed, but Supabase JSONB returns as object
-  return data.map(row => row.content as Project);
+  return data.map(row => ({
+    id: row.id,
+    ...(row.content as Omit<Project, 'id'>)
+  })) as Project[];
 }
