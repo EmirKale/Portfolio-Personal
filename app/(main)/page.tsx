@@ -8,8 +8,11 @@ import Certificates from '@/components/sections/Certificates';
 import Experience from '@/components/sections/Experience';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/Footer';
+import { getProjectsFromDB } from '@/lib/data/projects';
 
-export default function Home() {
+export default async function Home() {
+  const projectsList = await getProjectsFromDB();
+
   return (
     <>
       <Hero />
@@ -17,7 +20,7 @@ export default function Home() {
       <About />
       <Stats />
       <TechStack />
-      <Projects />
+      <Projects projects={projectsList} />
       <Certificates />
       <Experience />
       <Contact />

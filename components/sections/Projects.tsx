@@ -1,6 +1,6 @@
 'use client';
 
-import { projects } from '@/lib/data/projects';
+import { Project } from '@/lib/data/projects';
 import { useI18n } from '@/components/providers/I18nProvider';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
@@ -8,7 +8,7 @@ import { useRef } from 'react';
 import ArrowIcon from '@/components/ArrowIcon';
 import TiltCard from '@/components/TiltCard';
 
-export default function Projects() {
+export default function Projects({ projects = [] }: { projects?: Project[] }) {
   const { locale, dictionary } = useI18n();
   const dict = dictionary.projects;
   const sectionRef = useRef(null);

@@ -1,31 +1,30 @@
 'use server';
 
-import fs from 'fs';
-import path from 'path';
 import { Project } from '@/lib/data/projects';
 import { revalidatePath } from 'next/cache';
-
-const dataFilePath = path.join(process.cwd(), 'data', 'projects.json');
-
-const getProjects = (): Project[] => {
-  if (!fs.existsSync(dataFilePath)) return [];
-  const fileData = fs.readFileSync(dataFilePath, 'utf8');
-  return JSON.parse(fileData) as Project[];
-};
-
-const saveProjects = (projects: Project[]) => {
-  fs.writeFileSync(dataFilePath, JSON.stringify(projects, null, 2));
-};
+import { supabaseAdmin } from '@/lib/supabase/admin';
 
 export async function createProjectAction(project: Project) {
   try {
-    const projects = getProjects();
+    const { id, ...content } = project;
+    
     // basic collision check
-    if (projects.find(p => p.id === project.id)) {
+    const { data: existing } = await supabaseAdmin
+      .from('projects')
+      .select('id')
+      .eq('id', id)
+      .single();
+      
+    if (existing) {
       return { success: false, error: 'Bu ID ile bir proje zaten var.' };
     }
-    projects.push(project);
-    saveProjects(projects);
+    
+    const { error } = await supabaseAdmin
+      .from('projects')
+      .insert({ id, content });
+      
+    if (error) throw error;
+    
     revalidatePath('/'); // revalidate UI
     revalidatePath('/admin/projects');
     return { success: true };
@@ -36,13 +35,15 @@ export async function createProjectAction(project: Project) {
 
 export async function updateProjectAction(project: Project) {
   try {
-    const projects = getProjects();
-    const index = projects.findIndex(p => p.id === project.id);
-    if (index === -1) {
-      return { success: false, error: 'Proje bulunamadı.' };
-    }
-    projects[index] = project;
-    saveProjects(projects);
+    const { id, ...content } = project;
+    
+    const { error } = await supabaseAdmin
+      .from('projects')
+      .update({ content })
+      .eq('id', id);
+      
+    if (error) throw error;
+    
     revalidatePath('/');
     revalidatePath('/admin/projects');
     return { success: true };
@@ -53,13 +54,13 @@ export async function updateProjectAction(project: Project) {
 
 export async function deleteProjectAction(id: string) {
   try {
-    let projects = getProjects();
-    const initialLength = projects.length;
-    projects = projects.filter(p => p.id !== id);
-    if (projects.length === initialLength) {
-      return { success: false, error: 'Silinecek proje bulunamadı.' };
-    }
-    saveProjects(projects);
+    const { error } = await supabaseAdmin
+      .from('projects')
+      .delete()
+      .eq('id', id);
+      
+    if (error) throw error;
+    
     revalidatePath('/');
     revalidatePath('/admin/projects');
     return { success: true };
