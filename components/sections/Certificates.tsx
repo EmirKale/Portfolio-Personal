@@ -58,7 +58,7 @@ export default function Certificates() {
                 {/* Title & Issuer */}
                 <div className="min-w-0">
                   <h3 className="text-base md:text-lg font-display font-semibold text-cream group-hover:text-cream/80 transition-colors truncate">
-                    {cert.title}
+                    {locale === 'en' && cert.titleEn ? cert.titleEn : cert.title}
                   </h3>
                   <p className="text-xs md:text-sm text-cream-muted mt-0.5">
                     {cert.issuer}

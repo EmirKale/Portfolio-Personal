@@ -8,7 +8,7 @@ import { profile, journey } from '@/lib/data/profile';
 import { stats } from '@/lib/data/stats';
 import { techStack } from '@/lib/data/techStack';
 import { certificates } from '@/lib/data/certificates';
-import { Project } from '@/lib/data/projects';
+import { Project, getProjectTitle } from '@/lib/data/projects';
 
 interface TerminalPortfolioProps {
   projects: Project[];
@@ -79,8 +79,12 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
                   <span>{profile.university[locale]}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block uppercase font-semibold">DURUM:</span>
-                  <span className="text-emerald-400 font-semibold">Projeler & İşe Açık</span>
+                  <span className="text-slate-500 block uppercase font-semibold">
+                    {dict.contact.statusLabel?.[locale] ?? (locale === 'tr' ? 'DURUM' : 'STATUS')}:
+                  </span>
+                  <span className="text-emerald-400 font-semibold">
+                    {dict.contact.statusValue?.[locale] ?? profile.status[locale]}
+                  </span>
                 </div>
               </div>
 
@@ -183,9 +187,9 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
                   <div>
                     <span className="text-xs text-emerald-400 font-semibold block uppercase">
-                      VAKA 0{idx + 1} {'//'} {proj.category[locale]}
+                      {dict.projects.caseLabel?.[locale] ?? (locale === 'tr' ? 'VAKA' : 'CASE')} 0{idx + 1} {'//'} {proj.category[locale]}
                     </span>
-                    <h3 className="text-xl font-bold text-slate-100">{proj.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-100">{getProjectTitle(proj, locale)}</h3>
                   </div>
 
                   <div className="flex items-center gap-3 text-xs">
@@ -217,7 +221,7 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
                   <div className="border border-slate-800 bg-[#080c16] overflow-hidden">
                     <Image
                       src={proj.cover}
-                      alt={proj.title}
+                      alt={getProjectTitle(proj, locale)}
                       width={1200}
                       height={675}
                       className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity"
@@ -228,21 +232,27 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
                 {/* Problem, Çözüm / Mimari ve Sonuçlar */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
                   <div className="space-y-1.5">
-                    <span className="text-slate-500 block uppercase font-semibold">Problem</span>
+                    <span className="text-slate-500 block uppercase font-semibold">
+                      {dict.projects.problem[locale]}
+                    </span>
                     <p className="text-slate-300 leading-relaxed max-w-[65ch]">
                       {proj.problem ? proj.problem[locale] : proj.description[locale]}
                     </p>
                   </div>
 
                   <div className="space-y-1.5">
-                    <span className="text-slate-500 block uppercase font-semibold">Çözüm & Mimari</span>
+                    <span className="text-slate-500 block uppercase font-semibold">
+                      {dict.projects.solutionArch?.[locale] ?? (locale === 'tr' ? 'Çözüm & Mimari' : 'Solution & Architecture')}
+                    </span>
                     <p className="text-slate-300 leading-relaxed max-w-[65ch]">
                       {proj.solution ? proj.solution[locale] : (proj.longDescription ? proj.longDescription[locale] : proj.description[locale])}
                     </p>
                   </div>
 
                   <div className="space-y-1.5">
-                    <span className="text-slate-500 block uppercase font-semibold">Sonuç & Çıktılar</span>
+                    <span className="text-slate-500 block uppercase font-semibold">
+                      {dict.projects.resultsDeliverables?.[locale] ?? (locale === 'tr' ? 'Sonuç & Çıktılar' : 'Results & Deliverables')}
+                    </span>
                     {proj.results && proj.results.length > 0 ? (
                       <ul className="space-y-1 text-slate-300">
                         {proj.results.map((res, i) => (
@@ -259,7 +269,9 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
 
                 {/* Kullanılan Teknolojiler */}
                 <div className="border-t border-slate-800/80 pt-3 flex flex-wrap gap-2 text-[11px] text-slate-400">
-                  <span className="text-slate-500">Kullanılan Araçlar:</span>
+                  <span className="text-slate-500">
+                    {dict.projects.toolsUsed?.[locale] ?? (locale === 'tr' ? 'Kullanılan Araçlar:' : 'Tools Used:')}
+                  </span>
                   {proj.tech.map((t, i) => (
                     <span key={i} className="px-2 py-0.5 bg-slate-900 border border-slate-800 text-slate-300">
                       {t}
@@ -278,27 +290,29 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
               <div>
                 <div className="text-xs text-emerald-400 mb-1">$ cat ./projects_archive.tsv</div>
                 <h2 id="archive-title" className="text-lg font-bold text-slate-100 uppercase">
-                  Tüm Projeler & Sistem Arşivi
+                  {dict.projects.archiveTitle?.[locale] ?? (locale === 'tr' ? 'Tüm Projeler & Sistem Arşivi' : 'All Projects & System Archive')}
                 </h2>
               </div>
-              <span className="text-xs text-slate-500">{archiveProjects.length} kayıt listelendi</span>
+              <span className="text-xs text-slate-500">
+                {archiveProjects.length} {dict.projects.recordsListed?.[locale] ?? (locale === 'tr' ? 'kayıt listelendi' : 'records listed')}
+              </span>
             </div>
 
             <div className="border border-slate-800 bg-[#0c1220] overflow-x-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="border-b border-slate-800 bg-slate-900/60 text-slate-400">
-                    <th className="p-3 font-semibold">PROJE</th>
-                    <th className="p-3 font-semibold">KATEGORİ</th>
-                    <th className="p-3 font-semibold">TEKNOLOJİLER</th>
-                    <th className="p-3 font-semibold">AÇIKLAMA</th>
-                    <th className="p-3 font-semibold text-right">BAĞLANTI</th>
+                    <th className="p-3 font-semibold">{dict.projects.tableProject?.[locale] ?? (locale === 'tr' ? 'PROJE' : 'PROJECT')}</th>
+                    <th className="p-3 font-semibold">{dict.projects.tableCategory?.[locale] ?? (locale === 'tr' ? 'KATEGORİ' : 'CATEGORY')}</th>
+                    <th className="p-3 font-semibold">{dict.projects.tableTech?.[locale] ?? (locale === 'tr' ? 'TEKNOLOJİLER' : 'TECHNOLOGIES')}</th>
+                    <th className="p-3 font-semibold">{dict.projects.tableDescription?.[locale] ?? (locale === 'tr' ? 'AÇIKLAMA' : 'DESCRIPTION')}</th>
+                    <th className="p-3 font-semibold text-right">{dict.projects.tableLinks?.[locale] ?? (locale === 'tr' ? 'BAĞLANTI' : 'LINKS')}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60 text-slate-300">
                   {archiveProjects.map((p) => (
                     <tr key={p.id} className="hover:bg-slate-900/40">
-                      <td className="p-3 font-semibold text-slate-100">{p.title}</td>
+                      <td className="p-3 font-semibold text-slate-100">{getProjectTitle(p, locale)}</td>
                       <td className="p-3 text-slate-400">{p.category[locale]}</td>
                       <td className="p-3 text-slate-300">{p.tech.join(', ')}</td>
                       <td className="p-3 text-slate-400 max-w-sm line-clamp-2">{p.description[locale]}</td>
@@ -343,7 +357,9 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
                   <span className="text-slate-200 font-bold uppercase tracking-wider">
                     {cat.title[locale]}
                   </span>
-                  <span className="text-slate-500 text-[11px]">{cat.skills.length} araç</span>
+                  <span className="text-slate-500 text-[11px]">
+                    {cat.skills.length} {dict.skills.toolsCount?.[locale] ?? (locale === 'tr' ? 'araç' : 'tools')}
+                  </span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {cat.skills.map((skill, sIdx) => (
@@ -369,16 +385,20 @@ export default function TerminalPortfolio({ projects = [] }: TerminalPortfolioPr
                 {dict.certificates.title[locale]}
               </h2>
             </div>
-            <span className="text-xs text-slate-500">{certificates.length} adet kayıtlı belge</span>
+            <span className="text-xs text-slate-500">
+              {certificates.length} {dict.certificates.countLabel?.[locale] ?? (locale === 'tr' ? 'adet kayıtlı belge' : 'registered credentials')}
+            </span>
           </div>
 
           <div className="border border-slate-800 bg-[#0c1220] divide-y divide-slate-800/80 text-xs">
             {certificates.map((cert) => (
               <div key={cert.pdf} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-900/40">
                 <div className="space-y-1">
-                  <div className="font-semibold text-slate-200">{cert.title}</div>
+                  <div className="font-semibold text-slate-200">
+                    {locale === 'en' && cert.titleEn ? cert.titleEn : cert.title}
+                  </div>
                   <div className="text-slate-400 text-[11px]">
-                    Kurum: <span className="text-slate-300">{cert.issuer}</span> • {cert.meta[locale]}
+                    {dict.certificates.issuerLabel?.[locale] ?? (locale === 'tr' ? 'Kurum' : 'Issuer')}: <span className="text-slate-300">{cert.issuer}</span> • {cert.meta[locale]}
                   </div>
                 </div>
                 <a

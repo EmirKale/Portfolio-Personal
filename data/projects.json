@@ -341,6 +341,7 @@
   {
     "id": "vitransport",
     "title": "Vitransport Lojistik",
+    "titleEn": "Vitransport Logistics",
     "category": {
       "tr": "Kurumsal Web",
       "en": "Corporate Web"
@@ -509,6 +510,7 @@
   {
     "id": "mvcadmin",
     "title": "MVC Yazar Platformu",
+    "titleEn": "MVC Writer Platform",
     "category": {
       "tr": "CMS & Blog",
       "en": "CMS & Blog"
@@ -579,6 +581,7 @@
   {
     "id": "portfolio",
     "title": "Kişisel Portfolio Sitesi",
+    "titleEn": "Personal Portfolio Website",
     "category": {
       "tr": "Frontend",
       "en": "Frontend"

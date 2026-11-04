@@ -2,6 +2,7 @@ import type { Localized } from "./projects";
 
 export interface Certificate {
   title: string;
+  titleEn?: string;
   issuer: string;
   meta: Localized;
   icon: string;
@@ -11,6 +12,7 @@ export interface Certificate {
 export const certificates: Certificate[] = [
   {
     title: "Claude Code in Action",
+    titleEn: "Claude Code in Action",
     issuer: "Anthropic Courses",
     meta: { tr: "Mart 2026", en: "March 2026" },
     icon: "🤖",
@@ -18,6 +20,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "Claude 101",
+    titleEn: "Claude 101",
     issuer: "Anthropic Courses",
     meta: { tr: "2026", en: "2026" },
     icon: "🧠",
@@ -25,6 +28,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "Database Mastery: ASP.NET Core ile MongoDB-PostgreSQL-MSSQL",
+    titleEn: "Database Mastery: MongoDB-PostgreSQL-MSSQL with ASP.NET Core",
     issuer: "Udemy",
     meta: { tr: "Mayıs 2026 • 16.5 Saat", en: "May 2026 • 16.5 Hours" },
     icon: "💾",
@@ -32,6 +36,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "EntityFramework Core Masterclass (70+ LINQ & EF Core)",
+    titleEn: "EntityFramework Core Masterclass (70+ LINQ & EF Core)",
     issuer: "Udemy",
     meta: { tr: "Ocak 2026 • 12 Saat", en: "January 2026 • 12 Hours" },
     icon: "📊",
@@ -39,6 +44,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "AspNet Core ile Güvenlik: Identity & JWT Masterclass",
+    titleEn: "Security with ASP.NET Core: Identity & JWT Masterclass",
     issuer: "Udemy",
     meta: { tr: "Ocak 2026 • 14 Saat", en: "January 2026 • 14 Hours" },
     icon: "🔒",
@@ -46,6 +52,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "ASP.NET Core ile Yapay Zeka: Sigorta Projesi",
+    titleEn: "Artificial Intelligence with ASP.NET Core: Insurance Project",
     issuer: "Udemy",
     meta: { tr: "Şubat 2026 • 28 Saat", en: "February 2026 • 28 Hours" },
     icon: "🤖",
@@ -53,6 +60,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "C# ile 20 Derste 20 Uygulamalı Proje",
+    titleEn: "20 Hands-On Projects in 20 Lessons with C#",
     issuer: "Udemy",
     meta: { tr: "Mayıs 2025 • 16 Saat", en: "May 2025 • 16 Hours" },
     icon: "🛠️",
@@ -60,6 +68,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "Uygulama Geliştirerek C# Öğrenin: A'dan Z'ye",
+    titleEn: "Learn C# by Building Applications: From A to Z",
     issuer: "Udemy",
     meta: { tr: "Temmuz 2025 • 22 Saat", en: "July 2025 • 22 Hours" },
     icon: "💻",
@@ -67,6 +76,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "C# .Net ile Yapay Zeka Entegrasyonları",
+    titleEn: "Artificial Intelligence Integrations with C# .NET",
     issuer: "Udemy",
     meta: { tr: "Mayıs 2025 • 8 Saat", en: "May 2025 • 8 Hours" },
     icon: "🧠",
@@ -74,6 +84,7 @@ export const certificates: Certificate[] = [
   },
   {
     title: "Asp.Net Mvc5 ile Online Ticari Otomasyon",
+    titleEn: "Online Commercial Automation with ASP.NET MVC5",
     issuer: "Udemy",
     meta: { tr: "Nisan 2026 • 27 Saat", en: "April 2026 • 27 Hours" },
     icon: "🛒",

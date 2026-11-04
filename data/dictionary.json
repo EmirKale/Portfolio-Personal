@@ -137,6 +137,50 @@
     "viewProject": {
       "tr": "Projeyi İncele",
       "en": "View Project"
+    },
+    "caseLabel": {
+      "tr": "VAKA",
+      "en": "CASE"
+    },
+    "solutionArch": {
+      "tr": "Çözüm & Mimari",
+      "en": "Solution & Architecture"
+    },
+    "resultsDeliverables": {
+      "tr": "Sonuç & Çıktılar",
+      "en": "Results & Deliverables"
+    },
+    "toolsUsed": {
+      "tr": "Kullanılan Araçlar:",
+      "en": "Tools Used:"
+    },
+    "archiveTitle": {
+      "tr": "Tüm Projeler & Sistem Arşivi",
+      "en": "All Projects & System Archive"
+    },
+    "recordsListed": {
+      "tr": "kayıt listelendi",
+      "en": "records listed"
+    },
+    "tableProject": {
+      "tr": "PROJE",
+      "en": "PROJECT"
+    },
+    "tableCategory": {
+      "tr": "KATEGORİ",
+      "en": "CATEGORY"
+    },
+    "tableTech": {
+      "tr": "TEKNOLOJİLER",
+      "en": "TECHNOLOGIES"
+    },
+    "tableDescription": {
+      "tr": "AÇIKLAMA",
+      "en": "DESCRIPTION"
+    },
+    "tableLinks": {
+      "tr": "BAĞLANTI",
+      "en": "LINKS"
     }
   },
   "skills": {
@@ -147,6 +191,10 @@
     "subtitle": {
       "tr": "Çalıştığım araçlar ve teknolojiler",
       "en": "The tools and technologies I work with"
+    },
+    "toolsCount": {
+      "tr": "araç",
+      "en": "tools"
     }
   },
   "certificates": {
@@ -165,6 +213,14 @@
     "viewPDF": {
       "tr": "PDF'i Görüntüle",
       "en": "View PDF"
+    },
+    "countLabel": {
+      "tr": "adet kayıtlı belge",
+      "en": "registered credentials"
+    },
+    "issuerLabel": {
+      "tr": "Kurum",
+      "en": "Issuer"
     }
   },
   "experience": {
@@ -299,6 +355,14 @@
     "education": {
       "tr": "Eğitim",
       "en": "Education"
+    },
+    "statusLabel": {
+      "tr": "Durum",
+      "en": "Status"
+    },
+    "statusValue": {
+      "tr": "Projeler & İşe Açık",
+      "en": "Open to Projects & Work"
     },
     "downloadCv": {
       "tr": "CV İndir",

@@ -14,6 +14,7 @@ interface ProjectModalProps {
 const emptyProject: Project = {
   id: '',
   title: '',
+  titleEn: '',
   category: { tr: '', en: '' },
   tags: [],
   description: { tr: '', en: '' },
@@ -114,7 +115,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
               )}
 
               <form id="projectForm" onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div>
                     <label className="block text-xs uppercase tracking-[0.2em] text-cream-muted mb-2">Proje ID</label>
                     <input 
@@ -127,11 +128,19 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-[0.2em] text-cream-muted mb-2">Başlık</label>
+                    <label className="block text-xs uppercase tracking-[0.2em] text-cream-muted mb-2">Başlık (TR)</label>
                     <input 
                       required
                       value={formData.title}
                       onChange={e => handleChange('title', e.target.value)}
+                      className="w-full bg-bg border border-border-line rounded-xl py-3 px-4 text-cream focus:border-cream/50 outline-none" 
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs uppercase tracking-[0.2em] text-cream-muted mb-2">Başlık (EN)</label>
+                    <input 
+                      value={formData.titleEn || ''}
+                      onChange={e => handleChange('titleEn', e.target.value)}
                       className="w-full bg-bg border border-border-line rounded-xl py-3 px-4 text-cream focus:border-cream/50 outline-none" 
                     />
                   </div>

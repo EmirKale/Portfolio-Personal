@@ -1,6 +1,6 @@
 'use client';
 
-import { Project } from '@/lib/data/projects';
+import { Project, getProjectTitle } from '@/lib/data/projects';
 import { useI18n } from '@/components/providers/I18nProvider';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
@@ -56,7 +56,7 @@ export default function Projects({ projects = [] }: { projects?: Project[] }) {
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
                       src={proj.cover}
-                      alt={proj.title}
+                      alt={getProjectTitle(proj, locale)}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -78,7 +78,7 @@ export default function Projects({ projects = [] }: { projects?: Project[] }) {
 
                     {/* Title */}
                     <h3 className="text-xl md:text-2xl font-display font-bold text-cream mt-2 mb-3 group-hover:text-cream/80 transition-colors">
-                      {proj.title}
+                      {getProjectTitle(proj, locale)}
                     </h3>
 
                     {/* Description */}

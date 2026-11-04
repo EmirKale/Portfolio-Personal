@@ -3,7 +3,8 @@ import type { Localized } from "./projects";
 export const profile = {
   name: "Emir Kale",
   age: 22,
-  location: { tr: "İstanbul, Türkiye", en: "İstanbul, Türkiye" },
+  location: { tr: "İstanbul, Türkiye", en: "Istanbul, Turkey" },
+  status: { tr: "Projeler & İşe Açık", en: "Open to Projects & Work" },
   email: "emirkale03@gmail.com",
   phone: "+90 545 330 51 10",
   phoneHref: "+905453305110",
