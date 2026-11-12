@@ -1,13 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Sora } from 'next/font/google';
-import ClientLenisWrapper from '@/components/providers/ClientLenisWrapper';
+import { JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import I18nProvider from '@/components/providers/I18nProvider';
-import CustomCursor from '@/components/CustomCursor';
 import { getDictionary } from '@/app/actions/settings';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '700'], variable: '--font-sora' });
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
+const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' });
 
 export const metadata: Metadata = {
   title: 'Emir Kale — Software Engineer & AI Developer',
@@ -29,14 +27,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const dictionary = await getDictionary();
 
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`} suppressHydrationWarning>
-      <body className="bg-bg text-cream font-sans antialiased">
-        <ClientLenisWrapper>
-          <I18nProvider initialDictionary={dictionary}>
-            <CustomCursor />
-            <main>{children}</main>
-          </I18nProvider>
-        </ClientLenisWrapper>
+    <html lang="en" className={`${mono.variable} ${display.variable}`} suppressHydrationWarning>
+      <body className="bg-[#c3c7cb] text-[#000000] font-mono antialiased selection:bg-[#000000] selection:text-[#ffffff]">
+        <I18nProvider initialDictionary={dictionary}>
+          <div className="min-h-screen flex flex-col">{children}</div>
+        </I18nProvider>
       </body>
     </html>
   );

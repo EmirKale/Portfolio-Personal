@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 import { useI18n } from '@/components/providers/I18nProvider';
 
 const navLinks = [
-  { href: '#hero', key: 'home' },
-  { href: '#about', key: 'about' },
+  { href: '#readme', key: 'home' },
   { href: '#projects', key: 'projects' },
+  { href: '#archive', key: 'about' },
   { href: '#skills', key: 'skills' },
   { href: '#certificates', key: 'certificates' },
   { href: '#experience', key: 'experience' },
@@ -17,96 +17,72 @@ const navLinks = [
 export default function Navbar() {
   const { locale, toggleLocale, dictionary } = useI18n();
   const dict = dictionary.nav;
-  const [isOpen, setIsOpen] = useState(false);
+  const [time, setTime] = useState<string>('09:41 AM');
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) setIsOpen(false);
+    const update = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString(locale === 'tr' ? 'tr-TR' : 'en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true,
+        })
+      );
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    update();
+    const interval = setInterval(update, 10000);
+    return () => clearInterval(interval);
+  }, [locale]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-[#090d16]/95 backdrop-blur-none font-mono">
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-        {/* Sol: Sistem Kimliği */}
-        <div className="flex items-center gap-3">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-black bg-white font-mono text-xs select-none">
+      <div className="max-w-7xl mx-auto px-3 h-9 flex items-center justify-between">
+        {/* Sol: Menü Çubuğu (Apple / System Bar) */}
+        <div className="flex items-center gap-4">
           <Link
-            href="#hero"
-            className="flex items-center gap-2 font-bold text-slate-100 hover:text-emerald-400 transition-colors focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-sm"
+            href="#readme"
+            className="flex items-center gap-1.5 font-bold text-black hover:bg-black hover:text-white px-2 py-0.5 transition-none"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" aria-hidden="true" />
-            <span>emir_kale.sys</span>
+            {/* Retro Apple/Computer Symbol */}
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M2 2h12v10H2V2zm1 1v8h10V3H3zm-3 11h16v1H0v-1z" />
+            </svg>
+            <span className="tracking-tight font-black">EMIR_OS</span>
           </Link>
-          <span className="text-slate-600 text-xs hidden sm:inline" aria-hidden="true">/</span>
-          <span className="text-xs text-slate-400 hidden sm:inline">.NET & AI Full-Stack</span>
+
+          <nav className="hidden md:flex items-center gap-1 text-black" aria-label="Desktop Menu">
+            {navLinks.map((link) => (
+              <a
+                key={link.key}
+                href={link.href}
+                className="px-2 py-0.5 font-medium hover:bg-black hover:text-white transition-none"
+              >
+                {(dict as Record<string, Record<string, string>>)[link.key]?.[locale] || link.key}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        {/* Masaüstü Navigasyon */}
-        <nav className="hidden lg:flex items-center gap-5 text-xs text-slate-400" aria-label="Ana Navigasyon">
-          {navLinks.map((link) => (
-            <a
-              key={link.key}
-              href={link.href}
-              className="hover:text-slate-100 transition-colors focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-sm px-1 py-0.5"
-            >
-              [{(dict as Record<string, Record<string, string>>)[link.key]?.[locale] || link.key}]
-            </a>
-          ))}
-        </nav>
-
-        {/* Sağ: Dil Değiştirici ve Mobil Menü Butonu */}
-        <div className="flex items-center gap-3">
+        {/* Sağ: Durum / Saat / Dil Değiştirici */}
+        <div className="flex items-center gap-3 font-mono">
           <button
             onClick={toggleLocale}
-            className="text-xs px-2.5 py-1 border border-slate-700 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 transition-colors focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-sm"
-            aria-label="Dili Değiştir"
+            className="border border-black px-2 py-0.5 font-bold hover:bg-black hover:text-white transition-none"
+            aria-label="Switch Language"
           >
-            {locale === 'tr' ? 'EN' : 'TR'}
+            [{locale === 'tr' ? 'EN' : 'TR'}]
           </button>
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-1.5 text-slate-400 hover:text-slate-200 focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-sm border border-slate-800"
-            aria-label="Menüyü aç/kapat"
-            aria-expanded={isOpen}
-          >
-            {isOpen ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            )}
-          </button>
+          <span className="hidden sm:inline border-l border-black pl-3 text-black">
+            MEM: 640K FREE
+          </span>
+
+          <span className="border-l border-black pl-3 font-bold text-black tabular-nums">
+            {time}
+          </span>
         </div>
       </div>
-
-      {/* Mobil Açılır Menü */}
-      {isOpen && (
-        <div className="lg:hidden border-t border-slate-800 bg-[#0d1424] px-4 py-4 space-y-2 text-xs">
-          {navLinks.map((link) => (
-            <a
-              key={link.key}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="block py-1.5 text-slate-300 hover:text-emerald-400 transition-colors"
-            >
-              [{(dict as Record<string, Record<string, string>>)[link.key]?.[locale] || link.key}]
-            </a>
-          ))}
-          <div className="pt-3 border-t border-slate-800 flex items-center gap-4 text-slate-400">
-            <a href="https://github.com/emirkale" target="_blank" rel="noopener noreferrer" className="hover:text-slate-200">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/emirkale/" target="_blank" rel="noopener noreferrer" className="hover:text-slate-200">LinkedIn ↗</a>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

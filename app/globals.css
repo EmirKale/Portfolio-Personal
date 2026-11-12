@@ -2,194 +2,164 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Base ────────────────────────────────────── */
+/* ── One-Bit Desktop System Theme ──────────────── */
+:root {
+  --bg-desktop: #c3c7cb;
+  --window-bg: #ffffff;
+  --window-border: #000000;
+  --ink: #000000;
+  --ink-muted: #555555;
+  --paper: #ffffff;
+  --accent-yellow: #f8c02c;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #c3c7cb;
+  color: #000000;
 }
 
 body {
-  background-color: #0B0B0B;
-  color: #faf7f3;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: #c3c7cb;
+  color: #000000;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   overflow-x: hidden;
+  /* Authentic Mac OS 1-Bit Desk Dither Pattern */
+  background-image: radial-gradient(#000000 15%, transparent 16%), radial-gradient(#000000 15%, transparent 16%);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  background-color: #d6d9dc;
 }
 
 ::selection {
-  background-color: rgba(250, 247, 243, 0.15);
-  color: #faf7f3;
+  background-color: #000000;
+  color: #ffffff;
 }
 
-/* ── Custom Scrollbar ────────────────────────── */
+/* ── Custom 1-Bit Retro Scrollbar ────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 14px;
+  height: 14px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0B0B;
+  background: #ffffff;
+  border-left: 2px solid #000000;
+  background-image: radial-gradient(#000000 20%, transparent 20%);
+  background-size: 3px 3px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 3px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #000000;
 }
 
-/* ── Marquee Animation ───────────────────────── */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-/* ── Reveal Animation ────────────────────────── */
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal-up {
-  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* ── Grid Background ─────────────────────────── */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(250, 247, 243, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(250, 247, 243, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* ── Section Borders ─────────────────────────── */
-.section-border {
-  border-top: 1px solid rgba(250, 247, 243, 0.08);
-}
-
-.border-subtle {
-  border-color: rgba(250, 247, 243, 0.08);
-}
-
-/* ── Card Hover Glow ─────────────────────────── */
-.card-glow {
-  position: relative;
-  overflow: hidden;
-}
-
-.card-glow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(250, 247, 243, 0.04),
-    transparent 40%
+/* ── Striped Window Title Bar (Mac OS System 1/6) ── */
+.retro-striped-title {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #000000,
+    #000000 1px,
+    #ffffff 1px,
+    #ffffff 3px
   );
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
 }
 
-.card-glow:hover::before {
-  opacity: 1;
+/* ── 1-Bit Window Frame ──────────────────────────── */
+.retro-window {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
 }
 
-/* ── Text Gradient ───────────────────────────── */
-.text-gradient {
-  background: linear-gradient(135deg, #faf7f3 0%, #a0a0a0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.retro-window-sm {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 3px 3px 0 #000000;
 }
 
-/* ── Hamburger Menu Lines ────────────────────── */
-.hamburger-line {
-  display: block;
-  width: 28px;
-  height: 2px;
-  background-color: #faf7f3;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* ── Retro Hard Button ────────────────────────────── */
+.retro-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-weight: 700;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.retro-btn:hover {
+  background-color: #f4f4f4;
+}
+.retro-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 #000000;
 }
 
-.hamburger-open .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+.retro-btn-invert {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-weight: 700;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.retro-btn-invert:hover {
+  background-color: #222222;
+}
+.retro-btn-invert:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 #000000;
 }
 
-.hamburger-open .hamburger-line:nth-child(2) {
-  opacity: 0;
+.retro-btn-accent {
+  background-color: #f8c02c;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-weight: 700;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.retro-btn-accent:hover {
+  background-color: #ffd24d;
+}
+.retro-btn-accent:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 #000000;
 }
 
-.hamburger-open .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+/* ── Retro Tag / Badge ────────────────────────────── */
+.retro-tag {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  font-size: 11px;
+  line-height: 1;
+  padding: 3px 6px;
+  display: inline-flex;
+  align-items: center;
 }
 
-/* ── Counter Animation ───────────────────────── */
-@keyframes count-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ── Glass Effect ────────────────────────────── */
-.glass {
-  background: rgba(250, 247, 243, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(250, 247, 243, 0.06);
-}
-
-/* ── Link Underline Animation ────────────────── */
-.link-underline {
-  position: relative;
-}
-
-.link-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #faf7f3;
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.link-underline:hover::after {
-  width: 100%;
-}
-
-/* ── Canvas Loading ──────────────────────────── */
-.canvas-loading {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(250, 247, 243, 0.03) 0%,
-    transparent 70%
-  );
+/* ── Pixel Corner / Square Close Box ─────────────── */
+.retro-box-handle {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 0 #000000;
 }
