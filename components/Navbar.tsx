@@ -16,8 +16,8 @@ const navLinks = [
 
 export default function Navbar() {
   const { locale, toggleLocale, dictionary } = useI18n();
-  const dict = dictionary.nav;
-  const [time, setTime] = useState<string>('09:41 AM');
+  const dict = dictionary?.nav;
+  const [time, setTime] = useState<string>('');
 
   useEffect(() => {
     const update = () => {
@@ -78,8 +78,8 @@ export default function Navbar() {
             MEM: 640K FREE
           </span>
 
-          <span className="border-l border-black pl-3 font-bold text-black tabular-nums">
-            {time}
+          <span className="border-l border-black pl-3 font-bold text-black tabular-nums min-w-[70px] inline-block text-right">
+            {time || '09:41 AM'}
           </span>
         </div>
       </div>

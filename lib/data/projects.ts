@@ -52,21 +52,27 @@ export function getProjectTitle(project: Project, locale: Locale): string {
 }
 
 import { supabaseAdmin } from '../supabase/admin';
+import fallbackProjects from '../../data/projects.json';
 
 export const featuredProjectIds = ["vicareerai", "askbase", "yummy", "virasure"];
 
 export async function getProjectsFromDB(): Promise<Project[]> {
-  const { data, error } = await supabaseAdmin
-    .from('projects')
-    .select('id, content');
+  try {
+    const { data, error } = await supabaseAdmin
+      .from('projects')
+      .select('id, content');
 
-  if (error) {
-    console.error('Error fetching projects:', error);
-    return [];
+    if (error || !data || data.length === 0) {
+      console.warn('Using local fallback projects data:', error?.message);
+      return fallbackProjects as unknown as Project[];
+    }
+
+    return data.map(row => ({
+      id: row.id,
+      ...(row.content as Omit<Project, 'id'>)
+    })) as Project[];
+  } catch (err) {
+    console.warn('Network exception while fetching projects, using fallback data:', err);
+    return fallbackProjects as unknown as Project[];
   }
-
-  return data.map(row => ({
-    id: row.id,
-    ...(row.content as Omit<Project, 'id'>)
-  })) as Project[];
 }
